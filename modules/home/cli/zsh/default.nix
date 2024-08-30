@@ -6,15 +6,16 @@
 
   ...
 }:
+with lib;
 let
-  cfg = config.${namespace}.cli.zsh;
+  cfg = config.cli.zsh;
 in
 {
-  options.${namespace}.cli.zsh = {
-    enable = lib.mkEnableOption "zsh config";
+  options.cli.zsh = {
+    enable = mkEnableOption "zsh config";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
       settings = {

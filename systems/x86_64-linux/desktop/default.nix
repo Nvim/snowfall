@@ -16,6 +16,10 @@
 }:
 {
   imports = [ ./hardware-configuration.nix ];
-  # gnome.enable = true;
-  # def.enable = true;
+  desktop.gnome.enable = true;
+  hardware.gpu.amd.enable = true;
+  hardware.networking.hostname = "desktop";
+
+  # For zsh completions:
+  environment.pathsToLink = [ "/share/zsh" ];
 }
