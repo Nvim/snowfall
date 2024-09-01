@@ -3,6 +3,7 @@
   config,
   lib,
   pkgs,
+  stateVersion,
   ...
 }:
 with lib;
@@ -11,7 +12,7 @@ let
   cfg = config.system.nix;
 in
 {
-  options.system.nix = with types; {
+  options.system.nix = {
     enable = mkOpt types.bool true "Enable nix defaults";
   };
 
@@ -39,6 +40,6 @@ in
       options = "--delete-older-than 14d";
     };
 
-    system.stateVersion = "23.11"; # Did you read the comment?
+    system.stateVersion = stateVersion; # Did you read the comment?
   };
 }

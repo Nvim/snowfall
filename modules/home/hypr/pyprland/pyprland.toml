@@ -1,0 +1,43 @@
+[pyprland]
+plugins = ["scratchpads", "toggle_dpms"]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "foot"
+class = "foot"
+size = "30% 40%"
+monitor = {eDP-1={size="50% 60%"}}
+
+[scratchpads.yazi]
+animation = "fromTop"
+command = "foot -e yazi"
+class = "foot"
+size = "40% 50%"
+monitor = {eDP-1={size="55% 60%"}}
+lazy = true
+
+[scratchpads.nautilus]
+animation = "fromTop"
+command = "nautilus"
+class = "org.gnome.Nautilus"
+size = "50% 60%"
+monitor = {eDP-1={size="60% 65%"}}
+lazy = true
+
+[scratchpads.keepass]
+animation = "fromTop"
+command = "keepassxc"
+class = "org.keepassxc.KeePassXC"
+size = "50% 60%"
+monitor = {eDP-1={size="65% 70%"}}
+lazy = true
+
+
+[scratchpads.calculator]
+animation = "fromLeft"
+command = "gnome-calculator"
+class = "org.gnome.Calculator"
+size = "18% 38%"
+monitor = {eDP-1={size="25% 45%"}}
+unfocus = "hide"
+lazy = true

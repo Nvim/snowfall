@@ -13,6 +13,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
+
+    ags.url = "github:Aylur/ags";
+
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+
+    arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -32,6 +51,35 @@
 
       channels-config = {
         allowUnfree = true;
+      };
+
+      # Host-specific settings:
+      systems.hosts.desktop.specialArgs = {
+        hostname = "desktop";
+        stateVersion = "23.11";
+      };
+      systems.hosts.hp-laptop.specialArgs = {
+        hostname = "hp-laptop";
+        stateVersion = "23.11";
+      };
+
+      # Home modules:
+      home.modules = with inputs; [
+        stylix.homeManagerModules.stylix
+        ags.homeManagerModules.default
+        arkenfox.hMModules.default
+      ];
+
+      # Home-specific settings:
+      homes.users."naim@desktop".specialArgs = {
+        hostname = "desktop";
+        username = "naim";
+        stateVersion = "23.11";
+      };
+      homes.users."naim@hp-laptop".specialArgs = {
+        hostname = "hp-laptop";
+        username = "naim";
+        stateVersion = "23.11";
       };
     };
 }

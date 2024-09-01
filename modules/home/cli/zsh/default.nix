@@ -76,8 +76,9 @@ in
           gadd = "git add .";
           gcm = "git commit -m ";
           glog = "git log --oneline --graph --decorate";
-          gpsh = "git push";
-          gpll = "git pull";
+          gps = "git push";
+          gpl = "git pull";
+          gplr = "git pull --rebase";
         };
       in
       {

@@ -12,13 +12,68 @@
 
   # All other arguments come from the system system.
   config,
+  hostname,
   ...
 }:
 {
   imports = [ ./hardware-configuration.nix ];
-  desktop.gnome.enable = true;
-  hardware.gpu.amd.enable = true;
-  hardware.networking.hostname = "desktop";
+
+  desktop = {
+    gnome.enable = false;
+    hyprland.enable = true;
+  };
+
+  gaming.enable = true;
+
+  hardware = {
+    audio.enable = true;
+    bluetooth.enable = true;
+    gpu.amd.enable = true;
+    networking.enable = true;
+    networking.hostname = hostname;
+    sleepfix.enable = true;
+  };
+
+  packages = {
+    basics.enable = true;
+    dev.enable = true;
+    gtk.enable = true;
+    latex.enable = false;
+  };
+
+  system = {
+    battery.enable = false;
+    boot.enable = true;
+    fonts.enable = true;
+    kernel.enable = true;
+    ld.enable = true;
+    locale.enable = true;
+    nix.enable = true;
+    xkb.enable = true;
+  };
+
+  environment.shells = with pkgs; [ zsh ];
+  programs.zsh.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.naim = {
+    isNormalUser = true;
+    # hashedPasswordFile = config.sops.secrets.naim-password.path;
+    description = "naim";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [ kitty ];
+  };
+
+  services.xserver = {
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+  };
 
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];
