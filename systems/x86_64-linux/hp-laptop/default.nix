@@ -19,8 +19,8 @@
   imports = [ ./hardware-configuration.nix ];
 
   desktop = {
-    gnome.enable = false;
-    hyprland.enable = true;
+    gnome.enable = true;
+    hyprland.enable = false;
   };
 
   gaming.enable = false;
@@ -49,6 +49,8 @@
     ld.enable = true;
     locale.enable = true;
     nix.enable = true;
+    virtualisation.enable = false;
+    virtualisation.username = "naim";
     xkb.enable = true;
   };
 
