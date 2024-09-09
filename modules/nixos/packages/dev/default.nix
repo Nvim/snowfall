@@ -32,6 +32,9 @@ in
       lua
 
       vscodium
+
+      man-pages
+      man-pages-posix
     ];
   };
 }

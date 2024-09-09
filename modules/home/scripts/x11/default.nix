@@ -19,6 +19,9 @@ in
     home.packages = [
       (import ./setbg.nix { inherit pkgs; })
       (import ./changebrightness.nix { inherit pkgs; })
+      (import ./sb-battery.nix { inherit pkgs; })
+      (import ./power-menu.nix { inherit pkgs; })
+      # (import ./sb-volume.nix { inherit pkgs; })
     ];
   };
 }

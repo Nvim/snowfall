@@ -19,7 +19,8 @@
   imports = [ ./hardware-configuration.nix ];
 
   desktop = {
-    gnome.enable = true;
+    gnome.enable = false;
+    dwm.enable = true;
     hyprland.enable = false;
   };
 
@@ -65,6 +66,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "video"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [ kitty ];

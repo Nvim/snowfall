@@ -21,6 +21,7 @@ in
       (import ./newnote.nix { inherit pkgs; })
       (import ./autobisync.nix { inherit pkgs; })
       (import ./rclone_wrapper.nix { inherit pkgs; })
+      (import ./volumecontrol.nix { inherit pkgs; })
     ];
   };
 }

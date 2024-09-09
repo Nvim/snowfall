@@ -37,13 +37,14 @@ with lib;
   };
   scripts = {
     basic.enable = true;
-    wayland.enable = true;
-    x11.enable = false;
+    # wayland.enable = true;
+    x11.enable = true;
   };
 
   tools = {
     direnv.enable = true;
-    rofi.enable = true;
+    dunst.enable = true;
+    rofi.enable = false;
     stylix.enable = true;
     stylix.hostname = hostname;
   };
