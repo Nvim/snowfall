@@ -62,6 +62,10 @@
         hostname = "hp-laptop";
         stateVersion = "23.11";
       };
+      systems.hosts.thinkpad.specialArgs = {
+        hostname = "thinkpad";
+        stateVersion = "23.11";
+      };
 
       # Home modules:
       home.modules = with inputs; [
@@ -73,6 +77,11 @@
       # Home-specific settings:
       homes.users."naim@desktop".specialArgs = {
         hostname = "desktop";
+        username = "naim";
+        stateVersion = "23.11";
+      };
+      homes.users."naim@thinkpad".specialArgs = {
+        hostname = "thinkpad";
         username = "naim";
         stateVersion = "23.11";
       };

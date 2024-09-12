@@ -23,15 +23,15 @@
     hyprland.enable = true;
   };
 
-  gaming.enable = true;
+  gaming.enable = false;
 
   hardware = {
     audio.enable = true;
     bluetooth.enable = true;
-    gpu.amd.enable = true;
+    gpu.amd.enable = false;
     networking.enable = true;
     networking.hostname = hostname;
-    sleepfix.enable = true;
+    sleepfix.enable = false;
   };
 
   packages = {
@@ -42,7 +42,7 @@
   };
 
   system = {
-    battery.enable = false;
+    battery.enable = true;
     boot.enable = true;
     fonts.enable = true;
     kernel.enable = true;
@@ -69,14 +69,8 @@
     packages = with pkgs; [ kitty ];
   };
 
-  # services.xserver = {
-  #   displayManager.gdm = {
-  #     enable = true;
-  #     wayland = true;
-  #   };
-  # };
-
   services.displayManager.ly.enable = true;
+
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];
 }

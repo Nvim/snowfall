@@ -27,7 +27,7 @@ window {
     spacing:                     0px;
     padding:                     0px;
     border:                      2px;
-    border-radius:               40px;
+    border-radius:               10px;
     border-color:                @main-br;
     background-color:            transparent;
 }
@@ -63,13 +63,13 @@ mode-switcher {
 }
 button {
     cursor:                      pointer;
-    border-radius:               50px;
+    border-radius:               25px;
     background-color:            @main-bg;
     text-color:                  @main-fg;
 }
 button selected {
     padding:                     5px;
-    border-radius:               50px;
+    border-radius:               25px;
     background-color:            @main-fg;
     text-color:                  @main-bg;
 }
@@ -107,7 +107,7 @@ element {
     enabled:                     true;
     spacing:                     20px;
     padding:                     10px;
-    border-radius:               20px;
+    border-radius:               10px;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;

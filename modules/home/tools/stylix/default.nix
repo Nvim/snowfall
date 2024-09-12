@@ -10,7 +10,7 @@ with lib.dotfiles;
 let
   cfg = config.tools.stylix;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/gruvbox/houseonthesideofalake.jpg;
+  wallp = ../../../../wallp/gruvbox/anime-road.png;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then
@@ -39,7 +39,7 @@ in
       enable = true;
       autoEnable = true;
 
-      opacity.terminal = 0.95;
+      opacity.terminal = 0.92;
       image = wallp;
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
