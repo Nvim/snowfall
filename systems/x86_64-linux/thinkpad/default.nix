@@ -28,6 +28,7 @@
   hardware = {
     audio.enable = true;
     bluetooth.enable = true;
+    fingerprint.enable = true;
     gpu.amd.enable = false;
     networking.enable = true;
     networking.hostname = hostname;
@@ -44,6 +45,7 @@
   system = {
     battery.enable = true;
     boot.enable = true;
+    dbus.enable = false;
     fonts.enable = true;
     kernel.enable = true;
     ld.enable = true;
@@ -69,7 +71,38 @@
     packages = with pkgs; [ kitty ];
   };
 
-  services.displayManager.ly.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    videoDrivers = [
+      "i915"
+      "modesetting"
+    ];
+  };
+
+  hardware.graphics = {
+    enable = true;
+  };
+
+  # systemd.services."lockonsuspend@" = {
+  #   unitConfig = {
+  #     Description = "Lock screen on suspend";
+  #     Before = [ "sleep.target" ];
+  #   };
+  #   wantedBy = [ "sleep.target" ];
+  #   serviceConfig = {
+  #     Type = "forking";
+  #     ExecStart = ''${pkgs.hyprlock}/bin/hyprlock'';
+  #     User = "%I";
+  #   };
+  #   environment = {
+  #     DISPLAY = ":0";
+  #   };
+  # };
+  # services.displayManager.ly.enable = true;
 
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];

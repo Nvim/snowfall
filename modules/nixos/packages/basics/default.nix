@@ -35,6 +35,8 @@ in
       libreoffice-qt-fresh
 
       # cli:
+      gtypist
+      glow
       pandoc
       fzf
       fd
