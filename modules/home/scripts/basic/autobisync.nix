@@ -16,7 +16,7 @@ pkgs.writeShellApplication {
       mkdir -p "$local_path"
       echo "- RUNNING COMMAND: ''${RCLONE_CMD} bisync ''${remote_name}: ''${local_path} ''${flags}" >> "$LOGFILE"
 
-      if ! $RCLONE_CMD bisync "''${remote_name}:" "$local_path" "$flags" 2>> "$LOGFILE"; then
+      if ! $RCLONE_CMD bisync "''${remote_name}:" "$local_path" "$flags" "--conflict-resolve" "newer" 2>> "$LOGFILE"; then
         notify-send "Auto Bisync" "Error syncing remote $remote_name! Check Logs for info." -u critical -t 3600000
       else
         notify-send "Auto Bisync" "Remote $remote_name synced" -u low -t 1500

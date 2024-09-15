@@ -22,6 +22,7 @@ in
       (import ./autobisync.nix { inherit pkgs; })
       (import ./rclone_wrapper.nix { inherit pkgs; })
       (import ./volumecontrol.nix { inherit pkgs; })
+      (import ./syncmenu.nix { inherit pkgs; })
     ];
   };
 }

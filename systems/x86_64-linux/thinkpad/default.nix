@@ -45,6 +45,8 @@
   system = {
     battery.enable = true;
     boot.enable = true;
+    cron.enable = true;
+    cron.autobisync = true;
     dbus.enable = false;
     fonts.enable = true;
     kernel.enable = true;
