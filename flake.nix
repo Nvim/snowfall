@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +11,11 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -68,6 +71,10 @@
         hostname = "thinkpad";
         stateVersion = "23.11";
       };
+      systems.hosts.thinkpad.modules = with inputs; [
+        #
+        lanzaboote.nixosModules.lanzaboote
+      ];
 
       # Home modules:
       home.modules = with inputs; [
