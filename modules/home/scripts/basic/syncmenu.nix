@@ -6,11 +6,11 @@ pkgs.writeShellApplication {
     dmenu
   ];
   text = ''
-      Obsidian="Obsidian"
-      Perso="Perso"
-      Keepass="Keepass"
-      Feeds="Feeds"
-      ING1="ING1"
+      Obsidian="🧠 Obsidian"
+      Perso="🗂️ Perso"
+      Keepass="🔒 Keepass"
+      Feeds="🌐 Feeds"
+      ING1="📝 ING1"
       
       options="''${Obsidian}\n''${Perso}\n''${Keepass}\n''${Feeds}\n''${ING1}"
       choice=$(echo -e "$options" | rofi -dmenu -p "Choose an option")

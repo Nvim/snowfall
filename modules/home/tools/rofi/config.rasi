@@ -1,12 +1,9 @@
 // Config //
 configuration {
-    modi:                        "drun,filebrowser,window";
+    modi:                        "drun";
     show-icons:                  true;
     //display-drun:                "";
-    display-drun:                "";
-    display-run:                 "";
-    display-filebrowser:         "";
-    display-window:              "";
+    display-drun:                "🔍";
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
     font:                        "Ubuntu Nerd Font 12";
@@ -18,8 +15,8 @@ configuration {
 
 // Main //
 window {
-    height:                      400px;
-    width:                       600px;
+    width:                       280px;
+    height:                      300px;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -43,8 +40,8 @@ mainbox {
 
 // Inputs //
 inputbar {
-    width:                       0px;
-    enabled:                     true;
+    width:                       90px;
+    enabled:                     false;
     children:                    [ "entry" ];
 }
 entry {
@@ -56,7 +53,7 @@ entry {
 mode-switcher {
     width:                       150px;
     orientation:                 vertical;
-    enabled:                     true;
+    enabled:                     false;
     padding:                     80px 40px 80px 40px;
     spacing:                     20px;
     background-color:            @main-bg;
@@ -84,7 +81,7 @@ listbox {
     background-color:            transparent;
 }
 listview {
-    padding:                     30px;
+    padding:                     10px;
     spacing:                     0px;
     enabled:                     true;
     columns:                     1;
@@ -122,7 +119,7 @@ element selected.normal {
     text-color:                  @select-fg;
 }
 element-icon {
-    size:                        50px;
+    size:                        20px;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
