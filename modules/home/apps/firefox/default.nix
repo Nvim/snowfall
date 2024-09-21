@@ -22,7 +22,7 @@ in
       enable = true;
       arkenfox = {
         enable = cfg.arkenfox;
-        version = "126.1";
+        version = "128.0";
       };
       profiles.Default = {
         extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
