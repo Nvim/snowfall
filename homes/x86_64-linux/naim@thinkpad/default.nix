@@ -23,6 +23,7 @@ with lib;
     enable = true;
     arkenfox = true;
   };
+  apps.zathura.enable = true;
   cli.yazi.enable = true;
   cli.zellij.enable = true;
   cli.zsh.enable = true;

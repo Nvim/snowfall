@@ -45,10 +45,7 @@ in
         git_branch = {
           format = "[$symbol$branch]($style)";
           truncation_length = 8;
-          ignore_branches = [
-            "master"
-            "main"
-          ];
+          ignore_branches = [];
         };
         format = ''[\[](bold red)$username[@](bold gray dimmed)$hostname $directory$nix_shell$git_branch$direnv$container[\]](bold red)$character'';
         #\[$username$directory \[$git_branch $git_status\]
@@ -68,7 +65,7 @@ in
           oo = "cd $NOTES_DIR";
 
           nv = "nvim";
-          nnv = "~/.config/newvim/result/bin/nvim";
+          nnv = "~/.config/nvim/result/bin/nvim";
           z = "zellij";
           lg = "lazygit";
 

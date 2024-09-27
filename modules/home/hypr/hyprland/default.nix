@@ -87,6 +87,16 @@ in
               natural_scroll = "true";
             };
           };
+          gestures = {
+            workspace_swipe = "true";
+            workspace_swipe_fingers = "3";
+            workspace_swipe_distance = "100";
+          };
+
+          device = {
+            name = "elan06c6:00-04f3:3193-touchpad";
+            sensitivity = "0.1";
+          };
 
           # general = with config.stylix.base16Scheme; {
           general = {
@@ -130,6 +140,7 @@ in
             enable_swallow = true;
             swallow_regex = "Alacritty";
             animate_mouse_windowdragging = true;
+            vfr = true;
           };
 
           windowrulev2 = [
