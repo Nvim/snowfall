@@ -14,7 +14,7 @@ with lib;
   programs.home-manager.enable = true;
   home.stateVersion = stateVersion;
 
-  ags.enable = true;
+  ags.enable = false;
   ags.aylur.enable = false;
   # ags.hyprpanel.enable = true;
   apps.foot.enable = true;
@@ -29,8 +29,11 @@ with lib;
   cli.zsh.enable = true;
   env.enable = true;
   hypr = {
-    hyprland.enable = true;
-    hyprland.hostname = hostname;
+    hyprland = {
+      enable = true;
+      hostname = hostname;
+      barcmd = "waybar &";
+    };
     hyprlock.enable = true;
     hypridle.enable = true;
     pyprland.enable = true;
@@ -48,5 +51,7 @@ with lib;
     stylix.enable = true;
     stylix.hostname = hostname;
   };
+
+  waybar.enable = true;
 
 }

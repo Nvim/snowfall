@@ -1,0 +1,23 @@
+/* Kanagawa Palette */
+@define-color foreground #dcd7ba;
+@define-color background #1f1f28;
+@define-color alt_background #25252f;
+@define-color accent #7aa89f;
+
+@define-color black #090618;
+@define-color red #c34043;
+@define-color green #76946a;
+@define-color yellow #c0a36e;
+@define-color blue #7e9cd8;
+@define-color magenta #958fb8;
+@define-color cyan #6a9589;
+@define-color white #c8c093;
+
+@define-color alt_black #727169;
+@define-color alt_red #e82424;
+@define-color alt_green #98bb6c;
+@define-color alt_yellow #e6c384;
+@define-color alt_blue #7fb4ca;
+@define-color alt_magenta #938aa9;
+@define-color alt_cyan #7aa89f;
+@define-color alt_white #dcd7ba;

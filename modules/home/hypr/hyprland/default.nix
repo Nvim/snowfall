@@ -10,11 +10,13 @@ with lib.dotfiles;
 let
   cfg = config.hypr.hyprland;
   hostname = cfg.hostname;
+  barcmd = cfg.barcmd;
 in
 {
   options.hypr.hyprland = {
     enable = mkOpt types.bool false "Enable Hyprland DE";
     hostname = mkOpt types.str "desktop" "Hostname (used to determine monitor settings)";
+    barcmd = mkOpt types.str "waybar &" "Command to start bar. (include &)";
   };
 
   config = mkIf cfg.enable {
@@ -50,20 +52,11 @@ in
           "$windows" = "rofi -show window";
 
           exec-once =
-            let
-              agsCmd = "hyprpanel &";
-            in
-            # if config.ags.enable && config.ags.aylur.enable then
-            #   "ags &"
-            # else if config.ags.enable && config.ags.hyprpanel.enable then
-            #   "hyprpanel &"
-            # else
-            #   "";
             [
               # "swww-daemon &"
-              agsCmd
               "hyprshade on vibrance"
               "pypr"
+              barcmd
             ];
 
           source = [
