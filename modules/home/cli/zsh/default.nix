@@ -57,7 +57,7 @@ in
           # ls = "ls -hN --color=auto --group-directories-first";
           ls = "eza --icons=always --color-scale=all --color=always --group-directories-first --color-scale-mode=gradient";
           rf = "rm -rf";
-          cat = "bat";
+          # cat = "bat";
 
           df = "cd ~/.dotfiles";
           dw = "cd ~/Downloads";

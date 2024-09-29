@@ -28,6 +28,7 @@
   hardware = {
     audio.enable = true;
     bluetooth.enable = true;
+    fingerprint.enable = false;
     gpu.amd.enable = true;
     networking.enable = true;
     networking.hostname = hostname;
@@ -44,11 +45,15 @@
   system = {
     battery.enable = false;
     boot.enable = true;
+    cron.enable = true;
+    cron.autobisync = true;
+    dbus.enable = false;
     fonts.enable = true;
     kernel.enable = true;
     ld.enable = true;
     locale.enable = true;
     nix.enable = true;
+    virtualisation.enable = false;
     xkb.enable = true;
     xkb.qwerty = true;
   };

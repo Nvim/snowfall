@@ -24,6 +24,7 @@ with lib;
     arkenfox = true;
   };
   cli.yazi.enable = true;
+  cli.neovim.enable = false;
   cli.zellij.enable = true;
   cli.zsh.enable = true;
   env.enable = true;

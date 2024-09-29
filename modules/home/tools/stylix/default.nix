@@ -74,7 +74,8 @@ in
 
       targets = {
         nixvim.enable = false;
-        vim.enable = false;
+        neovim.enable = false;
+        vim.enable = true;
         waybar.enable = false;
         zellij.enable = false;
         avizo.enable = false;
