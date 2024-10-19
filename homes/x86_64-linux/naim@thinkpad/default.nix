@@ -14,7 +14,7 @@ with lib;
   programs.home-manager.enable = true;
   home.stateVersion = stateVersion;
 
-  ags.enable = false;
+  ags.enable = true;
   ags.aylur.enable = false;
   # ags.hyprpanel.enable = true;
   apps.foot.enable = true;
@@ -32,7 +32,7 @@ with lib;
     hyprland = {
       enable = true;
       hostname = hostname;
-      barcmd = "waybar &";
+      barcmd = "ags &";
     };
     hyprlock.enable = true;
     hypridle.enable = true;

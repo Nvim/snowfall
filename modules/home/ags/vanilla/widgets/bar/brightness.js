@@ -30,14 +30,6 @@ const label = Widget.Label({
       (self, screenValue) => {
         // screenValue is the passed parameter from the 'screen-changed' signal
         self.label = `${screenValue}` ?? "0";
-
-        // NOTE:
-        // since hooks are run upon construction
-        // the passed screenValue will be undefined the first time
-
-        // all three are valid
-        self.label = `${brightness.screen_value}`;
-        self.label = `${brightness["screen-value"]}`;
       },
       "screen-changed",
     ),

@@ -32,6 +32,7 @@ in
     wayland.windowManager.hyprland = {
       # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       systemd.enable = true;
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
@@ -51,13 +52,12 @@ in
           "$menu" = "rofi -show drun";
           "$windows" = "rofi -show window";
 
-          exec-once =
-            [
-              # "swww-daemon &"
-              "hyprshade on vibrance"
-              "pypr"
-              barcmd
-            ];
+          exec-once = [
+            # "swww-daemon &"
+            "hyprshade on vibrance"
+            "pypr"
+            barcmd
+          ];
 
           source = [
             "/home/naim/.config/hypr/binds.conf"

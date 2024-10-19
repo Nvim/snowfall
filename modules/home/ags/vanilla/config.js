@@ -1,11 +1,11 @@
-import { Volume, Mic } from "./widgets/bar/audio.js";
+import { Volume } from "./widgets/bar/audio.js";
 import { Clock } from "./widgets/bar/time.js";
 import { Workspaces } from "./widgets/bar/workspaces.js";
 import { ClientTitle } from "./widgets/bar/title.js";
 import { SysTray } from "./widgets/bar/systray.js";
 import { BatteryLabel } from "./widgets/bar/battery.js";
 import { Media } from "./widgets/bar/multimedia.js";
-import { Brightness, BrightnessPopup } from "./widgets/bar/brightness.js";
+// import { Brightness, BrightnessPopup } from "./widgets/bar/brightness.js";
 
 // import { applauncher } from "./widgets/applauncher.js";
 import { NotificationPopups } from "./widgets/notificationPopups.js";
@@ -32,10 +32,10 @@ function Right() {
     hpack: "end",
     spacing: 8,
     children: [
-      Mic(),
+      // Mic(),
       Volume(),
       BatteryLabel(),
-      Brightness(),
+      // Brightness(),
       Clock(),
       SysTray(),
     ],
@@ -62,7 +62,6 @@ App.config({
   windows: [
     Bar(),
     NotificationPopups(),
-    BrightnessPopup(),
     // applauncher,
   ],
 });

@@ -22,7 +22,11 @@ in
 
       gcc
       gnumake
+      gdb
       cmake
+      lldb
+      valgrind
+      criterion
 
       nodePackages_latest.nodejs
       nodePackages_latest.typescript

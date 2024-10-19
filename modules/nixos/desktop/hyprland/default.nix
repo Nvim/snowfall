@@ -18,7 +18,12 @@ in
   };
   config = mkIf cfg.enable {
 
-    programs.hyprland.enable = true;
+    programs.hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
     programs.dconf.enable = true;
 
     environment.sessionVariables = {
@@ -41,7 +46,7 @@ in
       wl-clipboard
       wf-recorder
       hyprpicker
-      wayshot
+      hyprshot
       xdg-desktop-portal-hyprland
       qt5ct
       qt6ct

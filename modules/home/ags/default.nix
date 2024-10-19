@@ -18,7 +18,17 @@ in
     aylur.enable = mkOpt types.bool false "Enable Aylur AGS";
     # hyprpanel.enable = mkOpt types.bool false "Enable hyprpanel";
   };
-  config = mkIf cfg.enable { home.packages = with pkgs; [ hyprpanel ]; };
+  config = mkIf cfg.enable {
+    programs.ags = {
+      enable = true;
+      configDir = ./vanilla;
+      extraPackages = with pkgs; [
+        gtksourceview
+        webkitgtk
+        accountsservice
+      ];
+    };
+  };
   # if cfg.enable then
   #   {
   #     home.packages = with pkgs; [
