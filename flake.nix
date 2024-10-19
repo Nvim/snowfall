@@ -23,9 +23,10 @@
 
     ags.url = "github:Aylur/ags";
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-
-    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    #
+    # matugen.url = "github:InioX/matugen?ref=v2.2.0";
 
     arkenfox = {
       url = "github:dwarfmaster/arkenfox-nixos";
@@ -36,9 +37,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
   };
 
   outputs =

@@ -101,6 +101,8 @@
     };
   };
 
+  services.geoclue2.enable = true;
+
   # systemd.services."lockonsuspend@" = {
   #   unitConfig = {
   #     Description = "Lock screen on suspend";
