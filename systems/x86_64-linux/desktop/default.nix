@@ -40,7 +40,8 @@
   packages = {
     basics.enable = true;
     dev.enable = true;
-    gtk.enable = true;
+    gtk.enable = false;
+    kde.enable = true;
     latex.enable = false;
   };
 
@@ -72,6 +73,7 @@
       "networkmanager"
       "wheel"
     ];
+    createHome = true;
     shell = pkgs.zsh;
     packages = with pkgs; [ kitty ];
   };

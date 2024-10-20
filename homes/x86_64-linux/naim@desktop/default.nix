@@ -23,14 +23,17 @@ with lib;
     enable = true;
     arkenfox = true;
   };
+  apps.zathura.enable = true;
   cli.yazi.enable = true;
-  cli.neovim.enable = false;
   cli.zellij.enable = true;
   cli.zsh.enable = true;
   env.enable = true;
   hypr = {
-    hyprland.enable = true;
-    hyprland.hostname = hostname;
+    hyprland = {
+      enable = true;
+      hostname = hostname;
+      barcmd = "ags &";
+    };
     hyprlock.enable = true;
     hypridle.enable = true;
     pyprland.enable = true;

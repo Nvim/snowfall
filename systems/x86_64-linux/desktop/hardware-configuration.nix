@@ -10,7 +10,9 @@
 }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
@@ -20,25 +22,47 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a9a13f71-0a65-4393-a85a-81755bc56a7a";
+    device = "/dev/disk/by-label/NIXOS_ROOT";
+    fsType = "ext4";
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/NIXOS_HOME";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/57A7-BAB8";
+    device = "/dev/disk/by-label/NIXOS_BOOT";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "fmask=0077"
+      "dmask=0077"
     ];
   };
 
-  swapDevices = [ ];
+  fileSystems."/Downloads" = {
+    device = "/dev/lvmwarm/Downloads";
+    fsType = "ext4";
+  };
+
+  fileSystems."/Emu" = {
+    device = "/dev/lvmwarm/Emu";
+    fsType = "ext4";
+  };
+
+  fileSystems."/VMS" = {
+    device = "/dev/lvmwarm/VMS";
+    fsType = "ext4";
+  };
+
+  swapDevices = [
+    { device = "/dev/disk/by-label/NIXOS_SWAP"; }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

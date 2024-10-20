@@ -25,11 +25,13 @@ in
       # apps:
       keepassxc
       obsidian
-      discord
+      # discord
+      webcord
       spotify
+      spicetify-cli
       firefox
       brave
-      # thunderbird-bin
+      thunderbird-bin
       newsflash
       zathura
       libreoffice-qt-fresh
