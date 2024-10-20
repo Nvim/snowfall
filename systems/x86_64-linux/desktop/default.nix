@@ -18,6 +18,8 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  services.openssh.enable = true;
+
   desktop = {
     gnome.enable = false;
     hyprland.enable = true;
