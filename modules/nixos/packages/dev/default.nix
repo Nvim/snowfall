@@ -18,7 +18,7 @@ in
     environment.systemPackages = with pkgs; [
       wget
       curl
-      neovim
+      # neovim
 
       gcc
       gnumake

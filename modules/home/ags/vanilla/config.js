@@ -4,7 +4,7 @@ import { Workspaces } from "./widgets/bar/workspaces.js";
 import { ClientTitle } from "./widgets/bar/title.js";
 import { SysTray } from "./widgets/bar/systray.js";
 import { BatteryLabel } from "./widgets/bar/battery.js";
-import { Media } from "./widgets/bar/multimedia.js";
+import { MediaLabel, MediaWidget } from "./widgets/bar/media.js";
 // import { Brightness, BrightnessPopup } from "./widgets/bar/brightness.js";
 
 // import { applauncher } from "./widgets/applauncher.js";
@@ -34,8 +34,9 @@ function Right() {
     children: [
       // Mic(),
       Volume(),
-      BatteryLabel(),
+      // BatteryLabel(),
       // Brightness(),
+      MediaLabel(),
       Clock(),
       SysTray(),
     ],
@@ -62,6 +63,7 @@ App.config({
   windows: [
     Bar(),
     NotificationPopups(),
+    MediaWidget(),
     // applauncher,
   ],
 });

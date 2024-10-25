@@ -19,6 +19,7 @@ in
   };
   config = mkIf cfg.enable {
     programs.firefox = {
+      package = pkgs.firefox-devedition;
       enable = true;
       arkenfox = {
         enable = cfg.arkenfox;

@@ -40,8 +40,8 @@
   packages = {
     basics.enable = true;
     dev.enable = true;
-    gtk.enable = false;
-    kde.enable = true;
+    gtk.enable = true;
+    kde.enable = false;
     latex.enable = false;
   };
 

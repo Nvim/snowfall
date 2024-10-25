@@ -10,7 +10,7 @@ with lib.dotfiles;
 let
   cfg = config.tools.stylix;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/gruvbox/anime-road.png;
+  wallp = ../../../../wallp/gruvbox/painting.jpg;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then

@@ -26,6 +26,7 @@ in
         gtksourceview
         webkitgtk
         accountsservice
+        gvfs
       ];
     };
   };
