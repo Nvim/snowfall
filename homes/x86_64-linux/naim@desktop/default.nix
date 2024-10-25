@@ -14,6 +14,8 @@ with lib;
   programs.home-manager.enable = true;
   home.stateVersion = stateVersion;
 
+  theming.qt.enable = true;
+
   ags.enable = true;
   ags.aylur.enable = false;
   # ags.hyprpanel.enable = true;

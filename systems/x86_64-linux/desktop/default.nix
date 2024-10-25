@@ -41,7 +41,7 @@
     basics.enable = true;
     dev.enable = true;
     gtk.enable = true;
-    kde.enable = false;
+    kde.enable = true;
     latex.enable = false;
   };
 

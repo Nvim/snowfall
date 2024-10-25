@@ -73,7 +73,6 @@ in
       };
 
       targets = {
-        kde.enable = true;
         nixvim.enable = false;
         neovim.enable = false;
         vim.enable = true;
