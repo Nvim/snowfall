@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 with lib;
@@ -10,12 +11,20 @@ let
   cfg = config.system.kernel;
 in
 {
-
+  imports = [ inputs.chaotic.nixosModules.default ];
   options.system.kernel = {
-    enable = mkOpt types.bool true "Enable Zen kernel";
+    zen.enable = mkOpt types.bool false "Enable Zen kernel";
+    cachy.enable = mkOpt types.bool false "Enable Cachy kernel";
   };
-  config = mkIf cfg.enable {
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+  config = {
+    chaotic.nyx.overlay.enable = true;
+    boot.kernelPackages =
+      if cfg.zen.enable then
+        pkgs.linuxPackages_zen
+      else if cfg.cachy.enable then
+        pkgs.linuxPackages_cachyos
+      else
+        pkgs.linuxPackages;
     boot.kernelParams = [ "quiet" ];
   };
 }

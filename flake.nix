@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,6 +61,10 @@
         allowUnfree = true;
       };
 
+      overlays = [
+        inputs.chaotic.overlays.default
+      ];
+
       # Host-specific settings:
       systems.hosts.desktop.specialArgs = {
         hostname = "desktop";
@@ -72,6 +78,10 @@
         hostname = "thinkpad";
         stateVersion = "23.11";
       };
+
+      systems.host.desktop.modules = with inputs; [
+        chaotic.nixosModules.default
+      ];
       systems.hosts.thinkpad.modules = with inputs; [
         #
         lanzaboote.nixosModules.lanzaboote

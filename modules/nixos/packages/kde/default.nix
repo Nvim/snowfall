@@ -38,8 +38,7 @@ in
       kdePackages.partitionmanager
       kdePackages.kolourpaint
       kdePackages.dragon
-      kdePackages.qt6ct
-      kdeconnect
+      plasma5Packages.kdeconnect-kde
       kcalc
     ];
 

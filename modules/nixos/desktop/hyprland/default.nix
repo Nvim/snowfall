@@ -48,7 +48,7 @@ in
       hyprpicker
       hyprshot
       xdg-desktop-portal-hyprland
-      qt5ct
+      libsForQt5.qt5ct
       qt6ct
       # inputs.pyprland.packages."x86_64-linux".pyprland
     ];

@@ -46,12 +46,13 @@
 
   system = {
     battery.enable = true;
+    battery.hostname = hostname;
     boot.enable = true;
     cron.enable = true;
     cron.autobisync = true;
     dbus.enable = false;
     fonts.enable = true;
-    kernel.enable = true;
+    kernel.cachy.enable = true;
     ld.enable = true;
     locale.enable = true;
     nix.enable = true;

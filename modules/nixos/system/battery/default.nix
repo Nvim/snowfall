@@ -5,13 +5,15 @@
   ...
 }:
 with lib;
-with lib;
+with lib.dotfiles;
 let
   cfg = config.system.battery;
+  hostname = cfg.hostname;
 in
 {
   options.system.battery = with types; {
     enable = mkEnableOption "Enable battery optimization";
+    hostname = mkOpt types.str "desktop" "Hostname (used to determine monitor settings)";
   };
 
   config = mkIf cfg.enable {
@@ -33,11 +35,10 @@ in
     services.power-profiles-daemon.enable = false;
 
     # Enable powertop
-    powerManagement.powertop.enable = true;
+    powerManagement.powertop.enable = if hostname == "desktop" then false else true;
 
     # Enable thermald (only necessary if on Intel CPUs)
-    # TODO: automate this
-    services.thermald.enable = true;
+    services.thermald.enable = if hostname == "desktop" then false else true;
 
     services.upower.enable = true;
   };
