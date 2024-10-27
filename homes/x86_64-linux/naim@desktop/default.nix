@@ -23,6 +23,7 @@ with lib;
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;
+    profileName = "naim";
     arkenfox = true;
   };
   apps.zathura.enable = true;

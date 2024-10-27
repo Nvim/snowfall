@@ -21,6 +21,7 @@ with lib;
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;
+    profileName = "Default";
     arkenfox = true;
   };
   apps.zathura.enable = true;
