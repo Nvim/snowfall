@@ -22,6 +22,9 @@ in
       nix-index
       nurl
 
+      # xp-pen driver:
+      libsForQt5.xp-pen-deco-01-v2-driver
+
       # apps:
       keepassxc
       obsidian

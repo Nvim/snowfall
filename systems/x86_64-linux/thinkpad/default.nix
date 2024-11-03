@@ -35,6 +35,7 @@
     networking.enable = true;
     networking.hostname = hostname;
     sleepfix.enable = false;
+    tablet.enable = true;
   };
 
   packages = {
@@ -56,7 +57,7 @@
     ld.enable = true;
     locale.enable = true;
     nix.enable = true;
-    virtualisation.enable = true;
+    virtualisation.enable = false;
     xkb.enable = true;
     xkb.qwerty = true;
   };
