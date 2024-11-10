@@ -35,7 +35,7 @@
     networking.enable = true;
     networking.hostname = hostname;
     sleepfix.enable = false;
-    tablet.enable = true;
+    tablet.real = true;
   };
 
   packages = {

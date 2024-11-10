@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=xppentablet
+Comment=XPPen driver
+Exec=/usr/lib/pentablet/PenTablet.sh
+Icon=/usr/share/icons/hicolor/256x256/apps/xppentablet.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true                                        
+Categories=Application;Utility;
+StartupNotify=true
+Name[en_US]=xppentablet

@@ -49,11 +49,11 @@ in
   config = mkIf cfg.enable {
     services.fprintd = {
       enable = true;
-      package = fprintd;
+      package = pkgs.fprintd;
     };
     services.udev = {
       enable = true;
-      packages = [ libfprint ];
+      packages = [ pkgs.libfprint ];
     };
   };
 }

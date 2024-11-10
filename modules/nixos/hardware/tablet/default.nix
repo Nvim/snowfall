@@ -11,13 +11,26 @@ let
 in
 {
   options.hardware.tablet = with types; {
-    enable = mkOpt bool true "Enable OpenTablet driver";
+    enable = mkOpt bool false "Enable OpenTablet driver";
+    real = mkOpt bool true "Enable XPPen driver";
 
   };
-  config = mkIf cfg.enable {
-    hardware.opentabletdriver = {
-      enable = true;
-      daemon.enable = true;
-    };
+  config = {
+    hardware.opentabletdriver =
+      if cfg.enable then
+        {
+          enable = true;
+          daemon.enable = true;
+        }
+      else
+        { };
+
+    environment =
+      if cfg.real then
+        {
+          systemPackages = [ pkgs.xp-pen-deco-01-v2-driver ];
+        }
+      else
+        { };
   };
 }

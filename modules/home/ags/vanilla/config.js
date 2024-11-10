@@ -34,7 +34,7 @@ function Right() {
     children: [
       // Mic(),
       Volume(),
-      // BatteryLabel(),
+      BatteryLabel(),
       // Brightness(),
       MediaLabel(),
       Clock(),
