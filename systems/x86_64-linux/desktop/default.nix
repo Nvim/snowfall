@@ -39,6 +39,7 @@
 
   packages = {
     basics.enable = true;
+    proton.enable = true;
     dev.enable = true;
     gtk.enable = true;
     kde.enable = true;

@@ -16,12 +16,16 @@ in
 
   config = mkIf cfg.enable {
 
-    home.packages = builtins.attrValues (
-      import ./hctl.nix {
-        inherit pkgs;
-        inherit config;
-      }
-    );
+    home.packages =
+      builtins.attrValues (
+        import ./hctl.nix {
+          inherit pkgs;
+          inherit config;
+        }
+      )
+      ++ [
+        (import ./kblayout.nix { inherit pkgs; })
+      ];
     #(import ./bookmarks.nix { inherit pkgs; })
     #(import ./power-menu.nix { inherit pkgs; })
 

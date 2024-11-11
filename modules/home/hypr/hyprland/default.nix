@@ -116,10 +116,10 @@ in
               new_optimizations = "true";
               ignore_opacity = "true";
             };
-            drop_shadow = "no";
-            shadow_range = "6";
-            shadow_render_power = "3";
-            "col.shadow" = lib.mkForce "rgba(1a1a1aee)";
+            shadow = {
+              enabled = false;
+              color = lib.mkForce "rgba(1a1a1aee)";
+            };
           };
 
           master = {

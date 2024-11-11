@@ -40,6 +40,7 @@
 
   packages = {
     basics.enable = true;
+    proton.enable = true;
     dev.enable = true;
     gtk.enable = true;
     latex.enable = false;

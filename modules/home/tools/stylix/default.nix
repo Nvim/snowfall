@@ -79,6 +79,7 @@ in
         waybar.enable = false;
         zellij.enable = false;
         avizo.enable = false;
+        hyprland.enable = false;
       };
     };
     #
