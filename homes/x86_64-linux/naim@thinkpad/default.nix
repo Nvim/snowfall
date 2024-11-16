@@ -15,8 +15,6 @@ with lib;
   home.stateVersion = stateVersion;
 
   ags.enable = true;
-  ags.aylur.enable = false;
-  # ags.hyprpanel.enable = true;
   apps.foot.enable = true;
   apps.alacritty.enable = true;
   apps.firefox = {
@@ -33,7 +31,7 @@ with lib;
     hyprland = {
       enable = true;
       hostname = hostname;
-      barcmd = "ags &";
+      barcmd = "my-shell &";
     };
     hyprlock.enable = true;
     hypridle.enable = true;

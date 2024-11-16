@@ -1,7 +1,8 @@
 # TODO: if pyprland is enabled, merge related keybinds from here
 {
   config,
-  pkgs,
+  inputs,
+  system,
   lib,
   ...
 }:
@@ -17,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ pyprland ];
+    home.packages = [ inputs.pyprland.packages.${system}.pyprland ];
     home.file."${config.xdg.configHome}/hypr/pyprland.toml" = {
       source = ./pyprland.toml;
     };

@@ -19,6 +19,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   services.openssh.enable = true;
+  services.gvfs.enable = true;
 
   desktop = {
     gnome.enable = false;

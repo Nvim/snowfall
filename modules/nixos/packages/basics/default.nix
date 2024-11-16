@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 with lib;
@@ -62,6 +63,8 @@ in
       brightnessctl
       bat
       eza
+      appimage-run
+      inputs.nix-alien.packages.${system}.nix-alien
     ];
   };
 }

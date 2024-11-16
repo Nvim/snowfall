@@ -143,6 +143,10 @@ in
             "maxsize ${maxFloatW} ${maxFloatH}, class:.*,floating:1"
             "stayfocused, class:(Rofi)"
           ];
+
+          workspace = [
+            "special:magic, on-created-empty:webcord, gapsout:20, gapsin:15"
+          ];
         };
     };
   };

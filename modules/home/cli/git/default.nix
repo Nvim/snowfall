@@ -10,9 +10,14 @@ let
   cfg = config.cli.git;
 in
 {
-  programs.git.extraConfig = {
-    merge = {
-      conflictStyle = "diff";
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      merge = {
+        conflictStyle = "diff";
+      };
     };
+    userName = "Naim";
+    userEmail = "naimssj4@gmail.com";
   };
 }

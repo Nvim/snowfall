@@ -10,7 +10,7 @@ with lib.dotfiles;
 let
   cfg = config.tools.stylix;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/gruvbox/painting.jpg;
+  wallp = ../../../../wallp/gruvbox/outset-island-evening.jpg;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then
@@ -79,7 +79,8 @@ in
         waybar.enable = false;
         zellij.enable = false;
         avizo.enable = false;
-        hyprland.enable = false;
+        hyprland.enable = true;
+        hyprlock.enable = false;
       };
     };
     #

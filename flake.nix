@@ -15,7 +15,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    statusbar = {
+      url = "github:Nvim/statusbar";
+      # inputs.nixpkgs.follow = "nixpkgs";
+    };
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nix-alien.url = "github:thiagokokada/nix-alien";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -24,12 +30,8 @@
 
     stylix.url = "github:danth/stylix";
 
-    ags.url = "github:Aylur/ags";
-
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    #
-    # matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    pyprland.url = "github:hyprland-community/pyprland";
 
     arkenfox = {
       url = "github:dwarfmaster/arkenfox-nixos";
