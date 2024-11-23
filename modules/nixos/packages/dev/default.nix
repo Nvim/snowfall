@@ -39,6 +39,11 @@ in
 
       man-pages
       man-pages-posix
+
+      # OpenGL debugging:
+      mesa-demos
+      glxinfo
+      clinfo
     ];
   };
 }
