@@ -59,7 +59,7 @@
     ld.enable = true;
     locale.enable = true;
     nix.enable = true;
-    virtualisation.enable = false;
+    virtualisation.enable = true;
     xkb.enable = true;
     xkb.qwerty = true;
   };

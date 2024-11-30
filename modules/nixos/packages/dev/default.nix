@@ -20,6 +20,7 @@ in
       curl
       # neovim
 
+      # C/CPP
       gcc
       gnumake
       gdb
@@ -28,17 +29,19 @@ in
       valgrind
       criterion
 
+      # Web:
       nodePackages_latest.nodejs
       nodePackages_latest.typescript
       bun
 
+      # Misc:
       python312Packages.python
       lua
-
       vscodium
-
       man-pages
       man-pages-posix
+      moreutils
+      file
 
       # OpenGL debugging:
       mesa-demos

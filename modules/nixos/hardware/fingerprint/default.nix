@@ -15,6 +15,12 @@ let
     stripRoot = false;
   };
   libfprint = pkgs.libfprint.overrideAttrs (attrs: {
+    version = "1.94.6";
+    src = pkgs.fetchgit {
+      url = "https://gitlab.freedesktop.org/libfprint/libfprint.git";
+      rev = "v1.94.6";
+      sha256 = "sha256-lDnAXWukBZSo8X6UEVR2nOMeVUi/ahnJgx2cP+vykZ8=";
+    };
     patches = attrs.patches or [ ] ++ [
       (pkgs.fetchpatch {
         url = "https://gitlab.freedesktop.org/libfprint/libfprint/-/merge_requests/396.patch";

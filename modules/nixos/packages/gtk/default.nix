@@ -22,6 +22,7 @@ in
       totem
       gnome-usage
       xfce.ristretto
+      xfce.tumbler
     ];
   };
 }
