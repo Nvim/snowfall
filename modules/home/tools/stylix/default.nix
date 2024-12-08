@@ -46,13 +46,13 @@ in
 
       fonts = {
         monospace = {
-          package = pkgs.nerdfonts.override { fonts = [ "GeistMono" ]; };
+          package = pkgs.nerd-fonts.geist-mono;
           name = "GeistMono Nerd Font";
-          # package = pkgs.nerdfonts.override { fonts = [ "IosevkaTerm" ]; };
+          # package = pkgs.nerd-fonts.override { fonts = [ "IosevkaTerm" ]; };
           # name = "IosevkaTerm Nerd Font";
         };
         sansSerif = {
-          package = pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; };
+          package = pkgs.nerd-fonts.ubuntu;
           name = "Ubuntu Nerd Font";
         };
         emoji = {
@@ -81,6 +81,10 @@ in
         avizo.enable = false;
         hyprland.enable = true;
         hyprlock.enable = false;
+
+        # Fix font problems:
+        foot.enable = false;
+        gtk.enable = false;
       };
     };
     #

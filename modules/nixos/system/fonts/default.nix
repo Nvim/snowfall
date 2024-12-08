@@ -39,16 +39,12 @@ in
       packages = with pkgs; [
         material-symbols
         material-icons
-        (nerdfonts.override {
-          fonts = [
-            "JetBrainsMono"
-            "UbuntuMono"
-            "VictorMono"
-            "IosevkaTerm"
-            "CascadiaMono"
-            "Ubuntu"
-          ];
-        })
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.ubuntu-mono
+        nerd-fonts.victor-mono
+        nerd-fonts.iosevka-term
+        nerd-fonts.caskaydia-mono
+        nerd-fonts.ubuntu
       ];
     };
   };
