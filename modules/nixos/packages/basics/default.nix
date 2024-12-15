@@ -36,6 +36,10 @@ in
       newsflash
       zathura
       libreoffice-qt-fresh
+      upscaler
+      parabolic
+      mission-center
+      cameractrls-gtk4
 
       # cli:
       gtypist
