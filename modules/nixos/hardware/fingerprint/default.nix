@@ -53,13 +53,20 @@ in
   };
 
   config = mkIf cfg.enable {
+
     services.fprintd = {
       enable = true;
-      package = pkgs.fprintd;
+      package = fprintd;
     };
+
     services.udev = {
       enable = true;
-      packages = [ pkgs.libfprint ];
+      packages = [ libfprint ];
+    };
+
+    systemd.services.fprintd = {
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig.Type = "simple";
     };
   };
 }
