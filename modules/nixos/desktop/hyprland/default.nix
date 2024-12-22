@@ -47,7 +47,6 @@ in
       wf-recorder
       hyprpicker
       hyprshot
-      xdg-desktop-portal-hyprland
       libsForQt5.qt5ct
       qt6ct
       # inputs.pyprland.packages."x86_64-linux".pyprland
@@ -58,7 +57,7 @@ in
         enable = true;
         configPackages = [
           xdg-desktop-portal-gtk
-          xdg-desktop-portal-hyprland
+          inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
           xdg-desktop-portal
         ];
         extraPortals = [

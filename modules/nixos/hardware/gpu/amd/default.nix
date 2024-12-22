@@ -15,7 +15,6 @@ in
     enable = mkOpt types.bool false "Enable amdgpu config";
   };
   config = mkIf cfg.enable {
-    boot.kernelParams = [ "amd_pstate=active" ]; # enable pstate
 
     services.xserver.enable = true;
     services.xserver.videoDrivers = [ "amdgpu" ];
@@ -36,5 +35,16 @@ in
       amdgpu_top
       lact
     ];
+
+    systemd.services.lact = {
+      description = "AMDGPU control daemon";
+      after = [ "default.target" ];
+      wantedBy = [ "default.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.lact}/bin/lact daemon";
+      };
+      enable = true;
+    };
+    boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   };
 }

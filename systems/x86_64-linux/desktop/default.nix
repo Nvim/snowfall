@@ -20,6 +20,17 @@
 
   services.openssh.enable = true;
   services.gvfs.enable = true;
+  services.power-profiles-daemon.enable = true;
+
+  boot = {
+    bootspec.enable = true;
+    kernelParams = [
+      "amd_pstate=active" # CPU governor
+      "split_lock_mitigate=off" # prevents some games from being slowed
+      "random.trust_cpu=on" # pretty sure this is useless
+    ];
+    blacklistedKernelModules = [ "sp5100_tco" ];
+  };
 
   desktop = {
     gnome.enable = false;
@@ -48,7 +59,7 @@
   };
 
   system = {
-    battery.enable = true;
+    battery.enable = false;
     battery.hostname = hostname;
     boot.enable = true;
     cron.enable = true;
@@ -80,13 +91,6 @@
     shell = pkgs.zsh;
     packages = with pkgs; [ kitty ];
   };
-
-  # services.xserver = {
-  #   displayManager.gdm = {
-  #     enable = true;
-  #     wayland = true;
-  #   };
-  # };
 
   services.displayManager.ly.enable = true;
   # For zsh completions:
