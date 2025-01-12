@@ -123,9 +123,14 @@ in
           };
 
           master = {
-            always_center_master = "true";
+            slave_count_for_center_master = "4";
             mfact = 0.6;
             new_on_top = true;
+          };
+
+          group = {
+            merge_groups_on_drag = "2"; # Only when dropping on group bar
+            insert_after_current = false;
           };
 
           misc = {

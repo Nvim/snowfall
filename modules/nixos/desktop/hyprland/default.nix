@@ -80,7 +80,7 @@ in
       # };
     };
 
-    # Enable gnome polkit 
+    # Enable gnome polkit
     systemd = {
       user.services.polkit-gnome-authentication-agent-1 = {
         description = "polkit-gnome-authentication-agent-1";
@@ -101,12 +101,5 @@ in
       unixAuth = true;
     };
 
-    nix.settings = {
-      substituters = [
-        "https://cache.nixos.org"
-        "https://hyprland.cachix.org"
-      ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-    };
   };
 }

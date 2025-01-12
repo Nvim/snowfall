@@ -66,7 +66,7 @@
     cron.autobisync = true;
     dbus.enable = false;
     fonts.enable = true;
-    kernel.cachy.enable = true;
+    kernel.zen.enable = true;
     ld.enable = true;
     locale.enable = true;
     nix.enable = true;

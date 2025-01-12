@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11"; # Pin stable for nerdfonts
     # nixpkgs-limefix.url = "github:nixos/nixpkgs?rev=efabdd83aaa48154cb63515771c435f36adb7d24";
 
     snowfall-lib = {
@@ -21,7 +21,7 @@
       # inputs.nixpkgs.follow = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     lanzaboote = {
@@ -29,7 +29,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland.url = "github:hyprwm/Hyprland";
     pyprland.url = "github:hyprland-community/pyprland";
@@ -64,10 +67,6 @@
         allowUnfree = true;
       };
 
-      overlays = [
-        inputs.chaotic.overlays.default
-      ];
-
       # Host-specific settings:
       systems.hosts.desktop.specialArgs = {
         hostname = "desktop";
@@ -82,9 +81,6 @@
         stateVersion = "23.11";
       };
 
-      systems.host.desktop.modules = with inputs; [
-        chaotic.nixosModules.default
-      ];
       systems.hosts.thinkpad.modules = with inputs; [
         #
         lanzaboote.nixosModules.lanzaboote
