@@ -45,6 +45,11 @@
     ];
   };
 
+  fileSystems."/games" = {
+    device = "/dev/lvmroot/Games";
+    fsType = "ext4";
+  };
+
   fileSystems."/Downloads" = {
     device = "/dev/lvmwarm/Downloads";
     fsType = "ext4";
