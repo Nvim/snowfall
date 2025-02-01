@@ -28,11 +28,20 @@ in
       source = ./animations/animations3.conf;
     };
 
+    home.file."${config.xdg.configHome}/hypr/plugins/hyprexpo.conf" = {
+      source = ./plugins/hyprexpo.conf;
+    };
+
     # enable hyprland
     wayland.windowManager.hyprland = {
       # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      plugins = [
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        # inputs.hycov.packages.${pkgs.system}.hycov
+      ];
       systemd.enable = true;
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
@@ -60,8 +69,9 @@ in
           ];
 
           source = [
-            "/home/naim/.config/hypr/binds.conf"
-            "/home/naim/.config/hypr/animations/animations3.conf"
+            "${config.xdg.configHome}/hypr/binds.conf"
+            "${config.xdg.configHome}/hypr/animations/animations3.conf"
+            "${config.xdg.configHome}/hypr/plugins/hyprexpo.conf"
           ];
 
           monitor = [

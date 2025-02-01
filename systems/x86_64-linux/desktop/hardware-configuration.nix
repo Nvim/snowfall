@@ -45,8 +45,8 @@
     ];
   };
 
-  fileSystems."/games" = {
-    device = "/dev/lvmroot/Games";
+  fileSystems."/Games" = {
+    device = "/dev/lvmroot/games";
     fsType = "ext4";
   };
 
