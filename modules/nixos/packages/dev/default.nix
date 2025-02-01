@@ -16,9 +16,6 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      wget
-      curl
-      # neovim
 
       # C/CPP
       gcc
@@ -34,10 +31,29 @@ in
       nodePackages_latest.typescript
       bun
 
-      # Misc:
+      # IDEs & editors:
+      # neovim
+      jetbrains.idea-ultimate
+      jetbrains.datagrip
+      vscodium
+      neovide
+      zed-editor
+      renderdoc
+
+      # Languages
       python312Packages.python
       lua
-      vscodium
+
+      # Tools
+      wget
+      curl
+      xh
+      atac
+      yq
+      jqp
+      atuin
+
+      # Posix utils:
       man-pages
       man-pages-posix
       moreutils

@@ -3,7 +3,6 @@
   config,
   pkgs,
   namespace,
-
   ...
 }:
 with lib;
@@ -16,6 +15,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs.atuin = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     programs.starship = {
       enable = true;
       settings = {
@@ -45,7 +48,7 @@ in
         git_branch = {
           format = "[$symbol$branch]($style)";
           truncation_length = 8;
-          ignore_branches = [];
+          ignore_branches = [ ];
         };
         format = ''[\[](bold red)$username[@](bold gray dimmed)$hostname $directory$nix_shell$git_branch$direnv$container[\]](bold red)$character'';
         #\[$username$directory \[$git_branch $git_status\]
