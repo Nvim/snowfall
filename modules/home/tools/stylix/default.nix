@@ -10,7 +10,7 @@ with lib.dotfiles;
 let
   cfg = config.tools.stylix;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/gruvbox/outset-island-evening.jpg;
+  wallp = ../../../../wallp/gruvbox/gruvbox-mountain-village.png;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then
@@ -46,15 +46,22 @@ in
 
       fonts = {
         monospace = {
-          package = pkgs.nerdfonts.override { fonts = [ "GeistMono" ]; };
-          name = "GeistMono Nerd Font";
-          # package = pkgs.nerd-fonts.override { fonts = [ "IosevkaTerm" ]; };
-          # name = "IosevkaTerm Nerd Font";
+          # package = pkgs.nerd-fonts.jetbrains-mono;
+          # name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerd-fonts.departure-mono;
+          name = "DepartureMono Nerd Font";
         };
         sansSerif = {
-          # package = pkgs.nerd-fonts.ubuntu;
-          package = pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; };
-          name = "Ubuntu Nerd Font";
+          # package = pkgs.nerd-fonts.jetbrains-mono;
+          # name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerd-fonts.departure-mono;
+          name = "DepartureMono Nerd Font";
+        };
+        serif = {
+          # package = pkgs.nerd-fonts.jetbrains-mono;
+          # name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerd-fonts.departure-mono;
+          name = "DepartureMono Nerd Font";
         };
         emoji = {
           package = pkgs.noto-fonts-emoji;

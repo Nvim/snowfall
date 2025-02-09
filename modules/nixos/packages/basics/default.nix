@@ -32,6 +32,8 @@ in
       spicetify-cli
       firefox
       brave
+      ungoogled-chromium
+      qutebrowser
       thunderbird-bin
       newsflash
       zathura

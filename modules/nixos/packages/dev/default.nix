@@ -25,6 +25,7 @@ in
       lldb
       valgrind
       criterion
+      gdbgui
 
       # Web:
       nodePackages_latest.nodejs
@@ -51,7 +52,7 @@ in
       atac
       yq
       jqp
-      atuin
+      # atuin
 
       # Posix utils:
       man-pages

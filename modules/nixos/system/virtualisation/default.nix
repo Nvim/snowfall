@@ -30,8 +30,8 @@ in
         enable = true;
         enableOnBoot = false;
         rootless = {
-          enable = true;
-          setSocketVariable = true;
+          enable = false;
+          # setSocketVariable = true;
         };
       };
       # podman.enable = true;

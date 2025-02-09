@@ -20,6 +20,7 @@
 
   services.openssh.enable = true;
   services.gvfs.enable = true;
+  home-manager.backupFileExtension = "back";
 
   desktop = {
     gnome.enable = false;

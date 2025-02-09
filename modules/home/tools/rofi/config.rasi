@@ -6,7 +6,7 @@ configuration {
     display-drun:                "🔍";
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
-    font:                        "Ubuntu Nerd Font 12";
+    font:                        "DepartureMono Nerd Font 12";
     icon-theme:                  "Papirus-Dark";
 }
 
