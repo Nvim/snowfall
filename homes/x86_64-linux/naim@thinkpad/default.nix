@@ -32,6 +32,7 @@ with lib;
       enable = true;
       hostname = hostname;
       barcmd = "my-shell &";
+      menucmd = "${pkgs.tofi}/bin/tofi-drun";
     };
     hyprlock.enable = true;
     hypridle.enable = true;
@@ -39,14 +40,18 @@ with lib;
     wlogout.enable = true;
   };
   scripts = {
+    dmenucmd = "${pkgs.tofi}/bin/tofi";
+    # dmenucmd = "${pkgs.rofi-wayland}/bin/rofi";
     basic.enable = true;
     wayland.enable = true;
     x11.enable = false;
+    autobisync-service.enable = true;
   };
 
   tools = {
     direnv.enable = true;
     rofi.enable = true;
+    tofi.enable = true;
     stylix.enable = true;
     stylix.hostname = hostname;
   };

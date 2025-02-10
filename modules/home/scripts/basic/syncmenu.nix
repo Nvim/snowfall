@@ -1,11 +1,15 @@
-{ pkgs }:
+{ pkgs, config, ... }:
+    let
+      dmenucmd = config.scripts.dmenucmd;
+    in
 pkgs.writeShellApplication {
   name = "syncmenu";
   runtimeInputs = with pkgs; [
-    rofi-wayland
-    dmenu
+    # rofi-wayland
+    # dmenu
   ];
-  text = ''
+  text =
+    ''
       Obsidian="🧠 Obsidian"
       Perso="🗂️ Perso"
       Keepass="🔒 Keepass"
@@ -13,7 +17,7 @@ pkgs.writeShellApplication {
       ING1="📝 ING"
       
       options="''${Obsidian}\n''${Perso}\n''${Keepass}\n''${Feeds}\n''${ING1}"
-      choice=$(echo -e "$options" | rofi -dmenu -p "Choose an option")
+      choice=$(echo -e "$options" | ${dmenucmd} --prompt-text "💾Sync:")
 
     case "$choice" in
       "$Obsidian")

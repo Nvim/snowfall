@@ -63,7 +63,7 @@
     battery.hostname = hostname;
     boot.enable = true;
     cron.enable = true;
-    cron.autobisync = true;
+    cron.autobisync = false;
     dbus.enable = false;
     fonts.enable = true;
     kernel.zen.enable = true;

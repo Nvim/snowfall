@@ -52,8 +52,7 @@
     battery.enable = true;
     battery.hostname = hostname;
     boot.enable = true;
-    cron.enable = true;
-    cron.autobisync = true;
+    cron.enable = false;
     dbus.enable = false;
     fonts.enable = true;
     kernel.zen.enable = true;
@@ -109,23 +108,6 @@
   };
 
   services.geoclue2.enable = true;
-
-  # systemd.services."lockonsuspend@" = {
-  #   unitConfig = {
-  #     Description = "Lock screen on suspend";
-  #     Before = [ "sleep.target" ];
-  #   };
-  #   wantedBy = [ "sleep.target" ];
-  #   serviceConfig = {
-  #     Type = "forking";
-  #     ExecStart = ''${pkgs.hyprlock}/bin/hyprlock'';
-  #     User = "%I";
-  #   };
-  #   environment = {
-  #     DISPLAY = ":0";
-  #   };
-  # };
-  # services.displayManager.ly.enable = true;
 
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];

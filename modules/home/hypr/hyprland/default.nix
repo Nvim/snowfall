@@ -11,12 +11,14 @@ let
   cfg = config.hypr.hyprland;
   hostname = cfg.hostname;
   barcmd = cfg.barcmd;
+  menucmd = cfg.menucmd;
 in
 {
   options.hypr.hyprland = {
     enable = mkOpt types.bool false "Enable Hyprland DE";
     hostname = mkOpt types.str "desktop" "Hostname (used to determine monitor settings)";
     barcmd = mkOpt types.str "waybar &" "Command to start bar. (include &)";
+    menucmd = mkOpt types.str "rofi -show drun" "Menu command";
   };
 
   config = mkIf cfg.enable {
@@ -58,7 +60,7 @@ in
         {
           "$terminal" = "foot";
           "$fileManager" = "nautilus";
-          "$menu" = "rofi -show drun";
+          "$menu" = "${menucmd}";
           "$windows" = "rofi -show window";
 
           exec-once = [

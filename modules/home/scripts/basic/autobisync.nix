@@ -1,10 +1,14 @@
 { pkgs }:
+let 
+  wrapper = import ./rclone_wrapper.nix { inherit pkgs; };
+in
 pkgs.writeShellApplication {
   name = "autobisync";
 
   runtimeInputs = [
     pkgs.rclone
     pkgs.findutils
+    wrapper
   ];
 
   text = ''
@@ -24,8 +28,8 @@ pkgs.writeShellApplication {
 
     }
 
-    if command -v rclone_wrapper &> /dev/null; then
-      RCLONE_CMD="rclone_wrapper"
+    if command -v ${wrapper}/bin/rclone_wrapper &> /dev/null; then
+      RCLONE_CMD="${wrapper}/bin/rclone_wrapper"
     else
       RCLONE_CMD="rclone"
     fi

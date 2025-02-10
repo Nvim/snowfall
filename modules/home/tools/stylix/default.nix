@@ -46,22 +46,16 @@ in
 
       fonts = {
         monospace = {
-          # package = pkgs.nerd-fonts.jetbrains-mono;
-          # name = "JetBrainsMono Nerd Font";
-          package = pkgs.nerd-fonts.departure-mono;
-          name = "DepartureMono Nerd Font";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
         sansSerif = {
-          # package = pkgs.nerd-fonts.jetbrains-mono;
-          # name = "JetBrainsMono Nerd Font";
-          package = pkgs.nerd-fonts.departure-mono;
-          name = "DepartureMono Nerd Font";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
         serif = {
-          # package = pkgs.nerd-fonts.jetbrains-mono;
-          # name = "JetBrainsMono Nerd Font";
-          package = pkgs.nerd-fonts.departure-mono;
-          name = "DepartureMono Nerd Font";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
         emoji = {
           package = pkgs.noto-fonts-emoji;
@@ -89,6 +83,7 @@ in
         avizo.enable = false;
         hyprland.enable = true;
         hyprlock.enable = false;
+        tofi.enable = false;
       };
     };
     #
