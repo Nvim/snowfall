@@ -1,3 +1,4 @@
+set font                        "JetBrainsMono Nerd Font"
 set notification-error-bg       "rgba(29,32,33,1)"     # bg
 set notification-error-fg       "rgba(251,73,52,1)"    # bright:red
 set notification-warning-bg     "rgba(29,32,33,1)"     # bg

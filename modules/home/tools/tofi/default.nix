@@ -36,6 +36,7 @@ in
           outline-width = 0;
           border-width = 2;
           fuzzy-match = true;
+          drun-launch = true;
         };
     };
   };
