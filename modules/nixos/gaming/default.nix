@@ -20,7 +20,7 @@ in
       protonup
       melonDS
       lutris
-      lime3ds
+      # lime3ds
       # heroic
       # bottles
     ];

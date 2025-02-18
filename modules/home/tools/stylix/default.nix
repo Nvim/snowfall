@@ -43,6 +43,7 @@ in
       image = wallp;
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/mountain.yaml";
 
       fonts = {
         monospace = {
@@ -85,6 +86,7 @@ in
         hyprlock.enable = false;
         tofi.enable = false;
         tmux.enable = false;
+        qt.enable = true;
       };
     };
     #

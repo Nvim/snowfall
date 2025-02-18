@@ -14,7 +14,7 @@ with lib;
   programs.home-manager.enable = true;
   home.stateVersion = stateVersion;
 
-  theming.qt.enable = true;
+  theming.qt.enable = false;
 
   ags.enable = true;
   apps.foot.enable = true;
@@ -52,6 +52,7 @@ with lib;
   };
 
   tools = {
+    tofi.enable = true;
     direnv.enable = true;
     rofi.enable = true;
     stylix.enable = true;

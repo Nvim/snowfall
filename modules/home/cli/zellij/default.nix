@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -18,6 +17,7 @@ in
   config = mkIf cfg.enable {
     programs.zellij = {
       enable = true;
+      enableZshIntegration = false;
     };
 
     home.file."${config.xdg.configHome}/zellij/themes/custom.kdl" = {

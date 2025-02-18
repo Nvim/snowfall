@@ -14,6 +14,8 @@ with lib;
   programs.home-manager.enable = true;
   home.stateVersion = stateVersion;
 
+  theming.qt.enable = false;
+
   ags.enable = true;
   apps.foot.enable = true;
   apps.alacritty.enable = true;
