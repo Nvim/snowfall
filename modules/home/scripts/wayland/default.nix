@@ -24,7 +24,7 @@ in
         }
       )
       ++ [
-        (import ./kblayout.nix { inherit pkgs; })
+        (import ./kblayout.nix { inherit pkgs; inherit config; })
       ];
     #(import ./bookmarks.nix { inherit pkgs; })
     #(import ./power-menu.nix { inherit pkgs; })

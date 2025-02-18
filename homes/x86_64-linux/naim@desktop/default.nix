@@ -25,6 +25,7 @@ with lib;
     arkenfox = true;
   };
   apps.zathura.enable = true;
+  cli.tmux.enable = true;
   cli.yazi.enable = true;
   cli.zellij.enable = true;
   cli.zsh.enable = true;
@@ -34,6 +35,7 @@ with lib;
       enable = true;
       hostname = hostname;
       barcmd = "my-shell &";
+      menucmd = "tofi-drun";
     };
     hyprlock.enable = true;
     hypridle.enable = true;
@@ -41,9 +43,12 @@ with lib;
     wlogout.enable = true;
   };
   scripts = {
+    dmenucmd = "tofi";
+    # dmenucmd = "${pkgs.rofi-wayland}/bin/rofi";
     basic.enable = true;
     wayland.enable = true;
     x11.enable = false;
+    autobisync-service.enable = true;
   };
 
   tools = {

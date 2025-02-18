@@ -84,6 +84,7 @@ in
         hyprland.enable = true;
         hyprlock.enable = false;
         tofi.enable = false;
+        tmux.enable = false;
       };
     };
     #

@@ -1,12 +1,14 @@
-{ pkgs }:
+{ pkgs, config }:
+    let
+      dmenucmd = config.scripts.dmenucmd;
+    in
 pkgs.writeShellApplication {
   name = "kblayout";
-  runtimeInputs = [ pkgs.rofi-wayland ];
   text = ''
       op1="⌨️ US"
       op2="⌨️ FR"
       options="''${op1}\n''${op2}"
-      selected=$(echo -e "$options" | rofi -dmenu -p "Choose an option")
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
 
     case "$selected" in
       "$op1")

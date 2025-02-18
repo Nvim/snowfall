@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  dmenucmd = config.scripts.dmenucmd;
+in
 {
   hctl = pkgs.writeShellApplication {
     name = "hctl";
-    runtimeInputs = [ pkgs.rofi-wayland ];
     text = ''
         op1="Reset"
         op2="Game mode"
@@ -12,7 +14,7 @@
         op6="Blur..."
 
         options="''${op1}\n''${op2}\n''${op3}\n''${op4}\n''${op5}\n''${op6}"
-        selected=$(echo -e "$options" | rofi -dmenu -p "Choose an option")
+        selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
 
       case "$selected" in
         "$op1")
@@ -44,22 +46,21 @@
 
   hctl-gaps = pkgs.writeShellApplication {
     name = "hctl-gaps";
-    runtimeInputs = [ pkgs.rofi-wayland ];
     text = ''
       op1="Inner Gaps"
       op2="Outer Gaps"
       op3="Disable all"
       op4="Restore default"
       options="''${op1}\n''${op2}\n''${op3}\n''${op4}"
-      selected=$(echo -e "$options" | rofi -dmenu -p "Choose an option")
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
 
       case "$selected" in
         "$op1")
-            value=$(rofi -dmenu -p "Enter new value")
+            value=$(${dmenucmd} -p "Enter new value")
             hyprctl keyword general:gaps_in "$value"
         ;;
         "$op2")
-            value=$(rofi -dmenu -p "Enter new value")
+            value=$(${dmenucmd} -p "Enter new value")
             hyprctl keyword general:gaps_out "$value"
         ;;
         "$op3")
@@ -77,16 +78,15 @@
 
   hctl-rounding = pkgs.writeShellApplication {
     name = "hctl-rounding";
-    runtimeInputs = [ pkgs.rofi-wayland ];
     text = ''
       op1="Type value"
       op2="Restore default"
       options="''${op1}\n''${op2}"
-      selected=$(echo -e "$options" | rofi -dmenu -p "Choose an option")
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
 
       case "$selected" in
         "$op1")
-            value=$(rofi -dmenu -p "Enter new value")
+            value=$(${dmenucmd} -p "Enter new value")
             hyprctl keyword decoration:rounding "$value"
         ;;
         "$op2")
@@ -99,4 +99,61 @@
     '';
   };
 
+  hctl-transparency = pkgs.writeShellApplication {
+    name = "hctl-transparency";
+    text = ''
+      op1="Active"
+      op2="Inactive"
+      op3="Disable all"
+      options="''${op1}\n''${op2}\n''${op3}"
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Opacity:")
+
+      case "$selected" in
+        "$op1")
+            value=$(${dmenucmd} -p "Enter new value")
+            hyprctl keyword decoration:active_opacity "$value"
+        ;;
+        "$op2")
+            value=$(${dmenucmd} -p "Enter new value")
+            hyprctl keyword decoration:inactive_opacity "$value"
+        ;;
+        "$op3")
+            hyprctl --batch "keyword decoration:active_opacity 100; keyword decoration:inactive_opacity 100"
+        ;;
+        *)
+          echo "Invalid option"
+          ;;
+        esac
+    '';
+  };
+
+  hctl-blur = pkgs.writeShellApplication {
+    name = "hctl-blur";
+    text = ''
+      op1="None"
+      op2="Light"
+      op3="Normal"
+      op4="Strong"
+      options="''${op1}\n''${op2}\n''${op3}"
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
+
+      case "$selected" in
+        "$op1")
+            hyprctl keyword decoration:blur:enabled 0
+        ;;
+        "$op2")
+            hyprctl --batch "keyword decoration:blur:size 3; keyword decoration:blur:passes 1"
+        ;;
+        "$op3")
+            hyprctl --batch "keyword decoration:blur:size 4; keyword decoration:blur:passes 2"
+        ;;
+        "$op4")
+            hyprctl --batch "keyword decoration:blur:size 5; keyword decoration:blur:passes 3"
+        ;;
+        *)
+          echo "Invalid option"
+          ;;
+        esac
+    '';
+  };
 }

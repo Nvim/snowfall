@@ -10,14 +10,14 @@ pkgs.writeShellApplication {
   ];
   text =
     ''
-      Obsidian="🧠 Obsidian"
-      Perso="🗂️ Perso"
-      Keepass="🔒 Keepass"
-      Feeds="🌐 Feeds"
-      ING1="📝 ING"
+      Obsidian=" Obsidian"
+      Perso=" Perso"
+      Keepass="󰌾 Keepass"
+      Feeds=" Feeds"
+      ING1="󱞂 ING"
       
       options="''${Obsidian}\n''${Perso}\n''${Keepass}\n''${Feeds}\n''${ING1}"
-      choice=$(echo -e "$options" | ${dmenucmd} --prompt-text "💾Sync:")
+      choice=$(echo -e "$options" | ${dmenucmd} -p "Sync:")
 
     case "$choice" in
       "$Obsidian")

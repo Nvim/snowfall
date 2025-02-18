@@ -18,7 +18,7 @@ in
   config = mkIf cfg.enable {
 
     home.packages = [
-      (import ./audioswitcher.nix { inherit pkgs; })
+      (import ./audioswitcher.nix { inherit pkgs config; })
       (import ./youtube-rss.nix { inherit pkgs; })
       (import ./newnote.nix { inherit pkgs; })
       (import ./autobisync.nix { inherit pkgs; })

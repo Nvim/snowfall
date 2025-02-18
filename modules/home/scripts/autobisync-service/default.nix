@@ -20,7 +20,11 @@ in
     systemd.user.services.autobisync-service = {
       Unit = {
         Description = "Run autobisync script in background";
-        Wants = "autobisync-service.timer";
+        Wants = [
+          "autobisync-service.timer"
+          "network-online.target"
+        ];
+        After = "network-online.target";
       };
       Service = {
         ExecStart = "${script}/bin/autobisync ING Obsidian Keepass";
@@ -30,7 +34,9 @@ in
 
     systemd.user.timers.autobisync-service = {
       Unit.Description = "Run autobisync script in background";
-      Timer.OnCalendar = "*:0/30";
+      # Timer.OnCalendar = "*:0/30";
+      Timer.OnBootSec = "1min";
+      Timer.OnActiveSec = "30min";
       Install.WantedBy = [ "timers.target" ];
     };
   };

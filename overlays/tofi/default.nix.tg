@@ -1,0 +1,10 @@
+{
+  ...
+}:
+final: prev: {
+  final.tofi = prev.tofi.overrideAttrs (old: {
+    patches = [
+      ./plag.patch
+    ];
+  });
+}

@@ -1,8 +1,10 @@
-{ pkgs }:
+{ pkgs, config }:
+    let
+      dmenucmd = config.scripts.dmenucmd;
+    in
 pkgs.writeShellApplication {
   name = "audioswitcher";
   runtimeInputs = [
-    pkgs.rofi-wayland
     pkgs.wireplumber
   ];
 
@@ -17,7 +19,7 @@ pkgs.writeShellApplication {
       notify-send "Audio switched to speakers 🔉"
     }
 
-    choice=$(printf "DAC\\nSpeakers" | rofi -dmenu -i -p "🎛️ Choose output: ")
+    choice=$(printf "DAC\\nSpeakers" | ${dmenucmd} -p "Choose output: ")
     case "$choice" in
       DAC) DAC;;
       Speakers) Speakers;;
