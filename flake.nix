@@ -49,11 +49,6 @@
     };
     pyprland.url = "github:hyprland-community/pyprland";
 
-    arkenfox = {
-      url = "github:dwarfmaster/arkenfox-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,7 +97,6 @@
       home.modules = with inputs; [
         stylix.homeManagerModules.stylix
         ags.homeManagerModules.default
-        arkenfox.hMModules.default
       ];
 
       # Home-specific settings:

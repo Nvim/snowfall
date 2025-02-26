@@ -21,8 +21,7 @@ with lib;
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;
-    profileName = "naim";
-    arkenfox = true;
+    profileName = "BetterFox";
   };
   apps.zathura.enable = true;
   cli.tmux.enable = true;
