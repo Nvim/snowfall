@@ -34,8 +34,8 @@ in
 
       # IDEs & editors:
       # neovim
-      jetbrains.idea-ultimate
-      jetbrains.datagrip
+      # jetbrains.idea-ultimate
+      # jetbrains.datagrip
       vscodium
       neovide
       zed-editor

@@ -54,7 +54,7 @@
     proton.enable = true;
     dev.enable = true;
     gtk.enable = true;
-    kde.enable = true;
+    kde.enable = false; # TODO: ffmpeg top-level broken
     latex.enable = false;
   };
 
@@ -93,6 +93,8 @@
   };
 
   services.displayManager.ly.enable = true;
+  systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];
 }

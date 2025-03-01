@@ -17,7 +17,7 @@ in
     profileName = mkOpt types.str "Default" "Firefox profile name";
   };
   config = mkIf cfg.enable {
-    home.file."$HOME/.mozilla/firefox/${profileName}/user.js" = {
+    home.file.".mozilla/firefox/${profileName}/user.js" = {
       source = ./user.js;
     };
     programs.firefox = {

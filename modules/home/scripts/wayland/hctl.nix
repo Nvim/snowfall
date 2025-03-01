@@ -14,7 +14,7 @@ in
         op6="Blur..."
 
         options="''${op1}\n''${op2}\n''${op3}\n''${op4}\n''${op5}\n''${op6}"
-        selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
+        selected=$(echo -e "$options" | ${dmenucmd} -p "Hyprctl:")
 
       case "$selected" in
         "$op1")
@@ -52,15 +52,15 @@ in
       op3="Disable all"
       op4="Restore default"
       options="''${op1}\n''${op2}\n''${op3}\n''${op4}"
-      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Gaps:")
 
       case "$selected" in
         "$op1")
-            value=$(${dmenucmd} -p "Enter new value")
+            value=$(${dmenucmd} -p "New value:")
             hyprctl keyword general:gaps_in "$value"
         ;;
         "$op2")
-            value=$(${dmenucmd} -p "Enter new value")
+            value=$(${dmenucmd} -p "New value:")
             hyprctl keyword general:gaps_out "$value"
         ;;
         "$op3")
@@ -82,11 +82,11 @@ in
       op1="Type value"
       op2="Restore default"
       options="''${op1}\n''${op2}"
-      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Rounding:")
 
       case "$selected" in
         "$op1")
-            value=$(${dmenucmd} -p "Enter new value")
+            value=$(${dmenucmd} -p "New value:")
             hyprctl keyword decoration:rounding "$value"
         ;;
         "$op2")
@@ -110,11 +110,11 @@ in
 
       case "$selected" in
         "$op1")
-            value=$(${dmenucmd} -p "Enter new value")
+            value=$(${dmenucmd} -p "New value:")
             hyprctl keyword decoration:active_opacity "$value"
         ;;
         "$op2")
-            value=$(${dmenucmd} -p "Enter new value")
+            value=$(${dmenucmd} -p "New value:")
             hyprctl keyword decoration:inactive_opacity "$value"
         ;;
         "$op3")
@@ -135,7 +135,7 @@ in
       op3="Normal"
       op4="Strong"
       options="''${op1}\n''${op2}\n''${op3}"
-      selected=$(echo -e "$options" | ${dmenucmd} -p "Choose an option")
+      selected=$(echo -e "$options" | ${dmenucmd} -p "Blur:")
 
       case "$selected" in
         "$op1")
