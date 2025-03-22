@@ -18,7 +18,7 @@
 
     statusbar = {
       url = "github:Nvim/statusbar";
-      # inputs.nixpkgs.follow = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
