@@ -9,6 +9,11 @@
 }:
 with lib;
 {
+  dconf.settings = {
+    "org/gnome/mutter" = {
+      check-alive-timeout = 60000;
+    };
+  };
   xdg.enable = true;
   snowfallorg.user.name = username;
   programs.home-manager.enable = true;

@@ -25,6 +25,7 @@
   desktop = {
     gnome.enable = false;
     hyprland.enable = true;
+    greetd.enable = true;
   };
 
   gaming.enable = false;
@@ -32,7 +33,7 @@
   hardware = {
     audio.enable = true;
     bluetooth.enable = true;
-    fingerprint.enable = true;
+    fingerprint.enable = false;
     gpu.amd.enable = false;
     networking.enable = true;
     networking.hostname = hostname;
@@ -82,10 +83,10 @@
 
   services.xserver = {
     enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+    # displayManager.gdm = {
+    #   enable = true;
+    #   wayland = true;
+    # };
     videoDrivers = [
       "i915"
       "modesetting"
@@ -94,6 +95,12 @@
 
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      intel-ocl
+      vpl-gpu-rt
+    ];
   };
 
   boot = {
@@ -105,9 +112,13 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
+
+    kernelParams = [
+      "acpi_backlight=native"
+    ];
   };
 
-  services.geoclue2.enable = true;
+  services.geoclue2.enable = false;
 
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];

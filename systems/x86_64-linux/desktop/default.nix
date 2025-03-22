@@ -35,6 +35,7 @@
   desktop = {
     gnome.enable = false;
     hyprland.enable = true;
+    greetd.enable = true;
   };
 
   gaming.enable = true;
@@ -92,9 +93,7 @@
     packages = with pkgs; [ kitty ];
   };
 
-  services.displayManager.ly.enable = true;
-  systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
-
+  # systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
   # For zsh completions:
   environment.pathsToLink = [ "/share/zsh" ];
 }

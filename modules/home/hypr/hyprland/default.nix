@@ -64,7 +64,6 @@ in
           "$windows" = "rofi -show window";
 
           exec-once = [
-            # "swww-daemon &"
             "hyprshade on vibrance"
             "pypr"
             barcmd
