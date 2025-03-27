@@ -251,17 +251,26 @@ user_pref("network.trr.mode", 2);
 user_pref("network.trr.max-fails", 5);
 
 // PREF: set DoH provider
-user_pref("network.trr.uri", "https://dns.dnswarden.com/00000000000000000000018"); // Hagezi Pro + TIF
+// user_pref("network.trr.uri", "https://dns.dnswarden.com/00000000000000000000018"); // Hagezi Pro + TIF
+user_pref("network.trr.uri", "https://base.dns.mullvad.net/dns-query");
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
-// Enter your scrolling overrides below this line:
-// recommended for 60hz+ displays
-// user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
-// user_pref("general.smoothScroll", true); // DEFAULT
-// user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400; adjust this number to your liking
+// recommended for 120hz+ displays
+// largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
+user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+user_pref("general.smoothScroll", true); // DEFAULT
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
+user_pref("general.smoothScroll.msdPhysics.enabled", true);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", "2");
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
+user_pref("general.smoothScroll.currentVelocityWeighting", "1");
+user_pref("general.smoothScroll.stopDecelerationWeighting", "1");
+user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

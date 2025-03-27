@@ -50,10 +50,11 @@ in
 
       settings =
         let
-          border = if hostname == "desktop" then "2" else "3";
+          border = if hostname == "desktop" then "2" else "2";
           outerGaps = if hostname == "desktop" then "10" else "6";
           innerGaps = if hostname == "desktop" then "5" else "3";
-          rounding = if hostname == "desktop" then "8" else "4";
+          # rounding = if hostname == "desktop" then "8" else "4";
+          rounding = "0";
           maxFloatW = if hostname == "desktop" then "2560" else "1280";
           maxFloatH = if hostname == "desktop" then "1390" else "720";
         in
@@ -134,14 +135,25 @@ in
           };
 
           master = {
-            slave_count_for_center_master = "4";
+            slave_count_for_center_master = "0";
             mfact = 0.6;
             new_on_top = true;
+            orientation = "left";
           };
 
           group = {
             merge_groups_on_drag = "2"; # Only when dropping on group bar
             insert_after_current = false;
+            groupbar = {
+              enabled = true;
+              font_size = "13";
+              gradients = true;
+              indicator_height = "0";
+              gradient_rounding = "0";
+              rounding = "0";
+              gaps_in = "0";
+              gaps_out = "0";
+            };
           };
 
           misc = {
@@ -150,6 +162,8 @@ in
             swallow_regex = "Alacritty";
             animate_mouse_windowdragging = true;
             vfr = true;
+            font_family = "JetBrainsMono Nerd Font";
+            splash_font_family = "JetBrainsMono Nerd Font";
           };
 
           windowrulev2 = [
