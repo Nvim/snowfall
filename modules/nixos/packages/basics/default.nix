@@ -42,6 +42,7 @@ in
       parabolic
       mission-center
       cameractrls-gtk4
+      kdePackages.kdeconnect-kde
 
       # cli:
       gtypist

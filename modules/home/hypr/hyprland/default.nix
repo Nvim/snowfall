@@ -55,8 +55,8 @@ in
           innerGaps = if hostname == "desktop" then "5" else "3";
           # rounding = if hostname == "desktop" then "8" else "4";
           rounding = "0";
-          maxFloatW = if hostname == "desktop" then "2560" else "1280";
-          maxFloatH = if hostname == "desktop" then "1390" else "720";
+          maxFloatW = if hostname == "desktop" then "2560" else "1920";
+          maxFloatH = if hostname == "desktop" then "1390" else "1080";
         in
         {
           "$terminal" = "foot";
