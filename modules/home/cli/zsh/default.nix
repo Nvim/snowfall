@@ -64,6 +64,7 @@ in
           # ls = "ls -hN --color=auto --group-directories-first";
           ls = "eza --icons=always --color-scale=all --color=always --group-directories-first --color-scale-mode=gradient";
           rf = "rm -rf";
+          c = "clear";
           # cat = "bat";
 
           df = "cd ~/.dotfiles";
@@ -80,6 +81,7 @@ in
           gadd = "git add .";
           gcm = "git commit -m ";
           glog = "git log --oneline --graph --decorate";
+          gck = "git checkout";
           gps = "git push";
           gpl = "git pull";
           gplr = "git pull --rebase";

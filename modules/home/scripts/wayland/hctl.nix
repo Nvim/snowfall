@@ -56,11 +56,11 @@ in
 
       case "$selected" in
         "$op1")
-            value=$(${dmenucmd} -p "New value:")
+            value=$(echo -e "" | ${dmenucmd} -p "New value:")
             hyprctl keyword general:gaps_in "$value"
         ;;
         "$op2")
-            value=$(${dmenucmd} -p "New value:")
+            value=$(echo -e "" | ${dmenucmd} -p "New value:")
             hyprctl keyword general:gaps_out "$value"
         ;;
         "$op3")
@@ -86,7 +86,7 @@ in
 
       case "$selected" in
         "$op1")
-            value=$(${dmenucmd} -p "New value:")
+            value=$(echo -e "" | ${dmenucmd} -p "New value:")
             hyprctl keyword decoration:rounding "$value"
         ;;
         "$op2")
@@ -110,11 +110,11 @@ in
 
       case "$selected" in
         "$op1")
-            value=$(${dmenucmd} -p "New value:")
+            value=$(echo -e "" | ${dmenucmd} -p "New value:")
             hyprctl keyword decoration:active_opacity "$value"
         ;;
         "$op2")
-            value=$(${dmenucmd} -p "New value:")
+            value=$(echo -e "" | ${dmenucmd} -p "New value:")
             hyprctl keyword decoration:inactive_opacity "$value"
         ;;
         "$op3")
@@ -142,13 +142,13 @@ in
             hyprctl keyword decoration:blur:enabled 0
         ;;
         "$op2")
-            hyprctl --batch "keyword decoration:blur:size 3; keyword decoration:blur:passes 1"
+            hyprctl --batch "keyword decoration:blur:enabled 1; keyword decoration:blur:size 3; keyword decoration:blur:passes 1"
         ;;
         "$op3")
-            hyprctl --batch "keyword decoration:blur:size 4; keyword decoration:blur:passes 2"
+            hyprctl --batch "keyword decoration:blur:enabled 1; keyword decoration:blur:size 4; keyword decoration:blur:passes 2"
         ;;
         "$op4")
-            hyprctl --batch "keyword decoration:blur:size 5; keyword decoration:blur:passes 3"
+            hyprctl --batch "keyword decoration:blur:enabled 1; keyword decoration:blur:size 5; keyword decoration:blur:passes 3"
         ;;
         *)
           echo "Invalid option"
