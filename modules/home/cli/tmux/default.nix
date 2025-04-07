@@ -24,7 +24,7 @@ in
       source = ./tmux.conf;
     };
 
-    home.file.".tmux/tpm" =
+    home.file.".tmux/plugins/tpm" =
       let
         tpmRepo = pkgs.fetchFromGitHub {
           owner = "tmux-plugins";

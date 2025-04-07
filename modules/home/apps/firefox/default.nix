@@ -29,7 +29,7 @@ in
           keepassxc-browser
           multi-account-containers
           gruvbox-dark-theme
-          # tridactyl
+          tridactyl
         ];
       };
     };

@@ -9,6 +9,7 @@ with lib;
 with lib.dotfiles;
 let
   cfg = config.tools.stylix;
+  firefoxProfile = config.apps.firefox.profileName;
   hostname = cfg.hostname;
   wallp = ../../../../wallp/gruvbox/gruvbox-mountain-village.png;
   cursorSize = if hostname == "desktop" then 16 else 12;
@@ -76,6 +77,10 @@ in
       };
 
       targets = {
+        firefox = {
+          profileNames = [ firefoxProfile ];
+          colorTheme.enable = false; # clashes with extensions
+        };
         nixvim.enable = false;
         neovim.enable = false;
         vim.enable = true;
