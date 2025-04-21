@@ -35,7 +35,12 @@ in
         };
       };
       # podman.enable = true;
-      libvirtd.enable = true;
+      libvirtd = {
+        enable = true;
+        qemu = {
+          vhostUserPackages = [ pkgs.virtiofsd ];
+        };
+      };
       # spiceUSBRedirection = true;
     };
   };
