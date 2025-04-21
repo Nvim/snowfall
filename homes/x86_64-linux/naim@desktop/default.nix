@@ -9,6 +9,7 @@
 }:
 with lib;
 {
+  programs.mangohud.enable = true;
   xdg.enable = true;
   snowfallorg.user.name = username;
   programs.home-manager.enable = true;
@@ -24,10 +25,13 @@ with lib;
     profileName = "BetterFox";
   };
   apps.zathura.enable = true;
-  cli.tmux.enable = true;
-  cli.yazi.enable = true;
-  cli.zellij.enable = true;
-  cli.zsh.enable = true;
+  cli = {
+    neovim.enable = true;
+    tmux.enable = true;
+    yazi.enable = true;
+    zellij.enable = true;
+    zsh.enable = true;
+  };
   env.enable = true;
   hypr = {
     hyprland = {

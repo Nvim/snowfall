@@ -59,7 +59,7 @@ in
           maxFloatH = if hostname == "desktop" then "1390" else "1080";
         in
         {
-          "$terminal" = "foot";
+          "$terminal" = "alacritty";
           "$fileManager" = "nautilus";
           "$menu" = "${menucmd}";
           "$windows" = "rofi -show window";

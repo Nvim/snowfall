@@ -21,16 +21,16 @@ in
       gcc
       gnumake
       gdb
-      cmake
-      lldb
-      valgrind
-      criterion
-      gdbgui
+      # cmake
+      # lldb
+      # valgrind
+      # criterion
+      # gdbgui
 
       # Web:
       nodePackages_latest.nodejs
       nodePackages_latest.typescript
-      bun
+      # bun
 
       # IDEs & editors:
       # neovim
@@ -59,6 +59,7 @@ in
       man-pages-posix
       moreutils
       file
+      pstree
 
       # OpenGL debugging:
       mesa-demos

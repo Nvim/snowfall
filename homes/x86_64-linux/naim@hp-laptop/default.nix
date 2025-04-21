@@ -17,7 +17,7 @@ with lib;
   ags.enable = false;
   ags.aylur.enable = false;
   # ags.hyprpanel.enable = true;
-  apps.foot.enable = true;
+  apps.foot.enable = false;
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;

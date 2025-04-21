@@ -24,6 +24,7 @@ in
       NVIM_DIR = "$HOME/.config/newvim";
       NOTES_DIR = "$HOME/Documents/Sync/Obsidian"; # Notes
       SYNC_DIR = "$HOME/Documents/Sync"; # Rest
+      MANPAGER= "nvim +Man!";
 
       # For npm -g:
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules";

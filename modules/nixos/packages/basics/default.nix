@@ -38,7 +38,7 @@ in
       newsflash
       zathura
       libreoffice-qt-fresh
-      upscaler
+      # upscaler TODO: broken
       parabolic
       mission-center
       cameractrls-gtk4

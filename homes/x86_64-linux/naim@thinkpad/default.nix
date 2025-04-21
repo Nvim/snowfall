@@ -22,17 +22,20 @@ with lib;
   theming.qt.enable = false;
 
   ags.enable = true;
-  apps.foot.enable = true;
+  apps.foot.enable = false;
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;
     profileName = "BetterFox";
   };
   apps.zathura.enable = true;
-  cli.tmux.enable = true;
-  cli.yazi.enable = true;
-  cli.zellij.enable = true;
-  cli.zsh.enable = true;
+  cli = {
+    neovim.enable = true;
+    tmux.enable = true;
+    yazi.enable = true;
+    zellij.enable = true;
+    zsh.enable = true;
+  };
   env.enable = true;
   hypr = {
     hyprland = {
