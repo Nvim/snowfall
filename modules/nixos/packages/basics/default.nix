@@ -17,6 +17,10 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
 
+      # TODO: choose one
+      wezterm
+      ghostty
+
       nh
       nix-output-monitor
       nvd

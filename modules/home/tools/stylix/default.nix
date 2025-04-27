@@ -11,7 +11,7 @@ let
   cfg = config.tools.stylix;
   firefoxProfile = config.apps.firefox.profileName;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/nord/abstract.png;
+  wallp = ../../../../wallp/monochrome/skeleton.png;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then
@@ -44,7 +44,8 @@ in
       image = wallp;
       polarity = "dark";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-dark-funeral.yaml";
 
       fonts = {
         monospace = {
@@ -71,10 +72,10 @@ in
       };
 
       cursor = {
-        # package = pkgs.bibata-cursors;
-        # name = "Bibata-Modern-Classic";
-        package = pkgs.nordzy-cursor-theme;
-        name = "Nordzy-cursors";
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Classic";
+        # package = pkgs.nordzy-cursor-theme;
+        # name = "Nordzy-cursors";
         size = cursorSize;
       };
 
@@ -92,16 +93,16 @@ in
         hyprland.enable = true;
         hyprlock.enable = false;
         tofi.enable = false;
-        tmux.enable = false;
+        tmux.enable = true;
         qt.enable = true;
       };
     };
     #
     gtk.iconTheme = {
-      # name = "Papirus";
-      # package = pkgs.papirus-icon-theme;
-      name = "Nordzy";
-      package = pkgs.nordzy-icon-theme;
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+      # name = "Nordzy";
+      # package = pkgs.nordzy-icon-theme;
     };
   };
 }
