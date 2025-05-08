@@ -59,7 +59,7 @@ in
           maxFloatH = if hostname == "desktop" then "1390" else "1080";
         in
         {
-          "$terminal" = "alacritty";
+          "$terminal" = "wezterm";
           "$fileManager" = "nautilus";
           "$menu" = "${menucmd}";
           "$windows" = "rofi -show window";
@@ -170,6 +170,7 @@ in
             "suppressevent maximize, class:.*"
             "float, class:^(waypaper)$"
             "float, title:^(Sandbox)$"
+            "tile, title:^(Minecraft).*$"
             "maxsize ${maxFloatW} ${maxFloatH}, class:.*,floating:1"
             "stayfocused, class:(Rofi)"
           ];

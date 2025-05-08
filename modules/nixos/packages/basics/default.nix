@@ -17,10 +17,6 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
 
-      # TODO: choose one
-      wezterm
-      ghostty
-
       nh
       nix-output-monitor
       nvd
@@ -76,7 +72,7 @@ in
       bat
       eza
       appimage-run
-      inputs.nix-alien.packages.${system}.nix-alien
+      # inputs.nix-alien.packages.${system}.nix-alien
     ];
   };
 }

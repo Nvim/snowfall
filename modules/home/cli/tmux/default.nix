@@ -28,12 +28,24 @@ in
       mouse = true;
       prefix = "C-b";
       resizeAmount = 15;
-      sensibleOnTop = true;
+      # sensibleOnTop = true;
+
+      extraConfig = ''
+        bind '"' split-window -v -c "#{pane_current_path}"
+        bind % split-window -h -c "#{pane_current_path}"
+      '';
 
       plugins = with pkgs; [
+        tmuxPlugins.sensible
         tmuxPlugins.yank
         tmuxPlugins.vim-tmux-navigator
-        tmuxPlugins.prefix-highlight
+        {
+          plugin = tmuxPlugins.prefix-highlight;
+          extraConfig = ''
+            set -g @prefix_highlight_show_copy_mode 'on'
+            set -g status-right '#{prefix_highlight} | %a %Y-%m-%d %H:%M'
+          '';
+        }
         # {
         #   plugin = tmuxPlugins.nord;
         #   extraConfig = "set -g @nord_tmux_no_patched_font '1'";
@@ -41,7 +53,7 @@ in
         # }
         # {
         #   plugin = tmuxPlugins.gruvbox;
-        #   extraConfig = "set -g @tmux-gruvbox 'dark256'"; 
+        #   extraConfig = "set -g @tmux-gruvbox 'dark256'";
         # }
       ];
     };

@@ -28,12 +28,14 @@ with lib;
     enable = true;
     profileName = "BetterFox";
   };
+  apps.ghostty.enable = false;
+  apps.wezterm.enable = true;
   apps.zathura.enable = true;
   cli = {
     neovim.enable = true;
     tmux.enable = true;
     yazi.enable = true;
-    zellij.enable = true;
+    zellij.enable = false;
     zsh.enable = true;
   };
   env.enable = true;

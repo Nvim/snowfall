@@ -45,7 +45,7 @@ in
       polarity = "dark";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-dark-funeral.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-bathory.yaml";
 
       fonts = {
         monospace = {
@@ -84,6 +84,7 @@ in
           profileNames = [ firefoxProfile ];
           colorTheme.enable = false; # clashes with extensions
         };
+        starship.enable = false;
         nixvim.enable = false;
         neovim.enable = false;
         vim.enable = true;

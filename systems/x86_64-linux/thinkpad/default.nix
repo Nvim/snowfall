@@ -29,6 +29,7 @@
   };
 
   gaming.enable = false;
+  minecraft.enable = false;
 
   hardware = {
     audio.enable = true;
@@ -78,7 +79,7 @@
       "wheel"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ kitty ];
+    # packages = with pkgs; [];
   };
 
   services.xserver = {
