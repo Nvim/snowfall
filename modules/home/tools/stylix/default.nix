@@ -88,7 +88,14 @@ in
         nixvim.enable = false;
         neovim.enable = false;
         vim.enable = true;
-        waybar.enable = false;
+        waybar = {
+          enable = false;
+          addCss = true;
+          enableCenterBackColors = true;
+          enableLeftBackColors = true;
+          enableRightBackColors = true;
+          # font = "JetBrainsMono Nerd Font";
+        };
         zellij.enable = false;
         avizo.enable = false;
         hyprland.enable = true;

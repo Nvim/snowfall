@@ -41,7 +41,7 @@ in
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       plugins = [
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
         # inputs.hycov.packages.${pkgs.system}.hycov
       ];
       systemd.enable = true;

@@ -22,7 +22,10 @@ with lib;
   theming.qt.enable = false;
 
   ags.enable = true;
-  apps.foot.enable = false;
+  apps.foot = {
+    enable = true;
+    server = false;
+  };
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;

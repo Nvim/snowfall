@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    statusbar = {
-      url = "github:Nvim/statusbar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     # nix-alien.url = "github:thiagokokada/nix-alien";
 

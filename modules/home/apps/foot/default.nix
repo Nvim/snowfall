@@ -13,11 +13,12 @@ in
 {
   options.apps.foot = {
     enable = mkOpt types.bool false "Enable foot terminal";
+    server = mkOpt types.bool false "Enable server mode";
   };
   config = mkIf cfg.enable {
     programs.foot = {
       enable = true;
-      server.enable = true;
+      server.enable = cfg.server;
       settings = {
         main = {
           title = "foot";

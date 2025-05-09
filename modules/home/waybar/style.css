@@ -1,0 +1,156 @@
+@define-color background @base01;
+@define-color alt_background @base02;
+@define-color foreground @base05;
+@define-color blue @base08;
+@define-color orange @base0A;
+@define-color yellow @base0B;
+
+* {
+  border: none;
+}
+
+window#waybar {
+  background-color: alpha(@background, 1.0);
+  color: @foreground;
+  opacity: 1;
+}
+
+tooltip {
+  background: @alt_background;
+  color: @foreground;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#hyprland-window {
+  background-color: @alt_background;
+}
+
+#window,
+#mode,
+#cpu,
+#memory,
+#temperature,
+#custom-wmname,
+#clock,
+#language,
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#power-profiles-daemon,
+#custom-notification,
+#mpris,
+#tray {
+  background-color: @background;
+  padding: 0 5px;
+  /* margin: 5px 2px 5px 2px; */
+  /* background-clip: padding-box; */
+}
+
+#workspaces {
+  background-color: @background;
+}
+
+#workspaces button {
+  background-color: @background;
+  border-radius: 0px;
+  /* padding: 0 5px; */
+  /* min-width: 20px; */
+  color: @foreground;
+}
+
+/* #workspaces button:hover { */
+/*   background-color: @background; */
+/*   border-radius: 6px; */
+/*   border-color: @alt_background; */
+/* } */
+
+#workspaces button.active {
+  background-color: @alt_background;
+  color: @blue;
+}
+
+#workspaces button.urgent {
+  color: @orange;
+}
+
+#power-profiles-daemon.performance {
+  color: @orange;
+}
+
+#power-profiles-daemon.balanced {
+  color: @yellow;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @blue;
+}
+
+#cpu {
+  color: @foreground;
+}
+
+#memory {
+  color: @foreground;
+}
+
+#temperature {
+  color: @foreground;
+}
+
+#temperature.critical {
+  background-color: @orange;
+  color: @background;
+}
+
+#clock {
+  color: @foreground;
+}
+
+#idle_inhibitor {
+  color: @foreground;
+}
+
+#wireplumber {
+  color: @foreground;
+}
+
+#wireplumber.muted {
+  color: @yellow;
+}
+
+#backlight {
+  color: @foreground;
+}
+
+#battery {
+  color: @foreground;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @blue;
+}
+
+#battery.critical:not(.charging) {
+  color: @orange;
+}
+
+#network {
+  color: @yellow;
+}
+
+#custom-wmname {
+  color: @blue;
+  background-color: @background;
+  font-size: 25px;
+  margin: 1px;
+  padding: 0px 0px 0px 5px;
+}
+
+#network.disconnected {
+  color: @orange;
+}

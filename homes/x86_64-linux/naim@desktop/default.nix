@@ -17,8 +17,12 @@ with lib;
 
   theming.qt.enable = false;
 
-  ags.enable = true;
-  apps.foot.enable = true;
+  ags.enable = false;
+  waybar.enable = true;
+  apps.foot = {
+    enable = true;
+    server = false;
+  };
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;
@@ -38,7 +42,7 @@ with lib;
     hyprland = {
       enable = true;
       hostname = hostname;
-      barcmd = "my-shell &";
+      barcmd = "waybar &";
       menucmd = "tofi-drun";
     };
     hyprlock.enable = true;
