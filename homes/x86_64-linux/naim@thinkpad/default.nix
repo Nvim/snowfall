@@ -21,7 +21,8 @@ with lib;
 
   theming.qt.enable = false;
 
-  ags.enable = true;
+  # ags.enable = true;
+  waybar.enable = true;
   apps.foot = {
     enable = true;
     server = false;
@@ -46,7 +47,7 @@ with lib;
     hyprland = {
       enable = true;
       hostname = hostname;
-      barcmd = "my-shell &";
+      barcmd = "waybar &";
       menucmd = "tofi-drun";
     };
     hyprlock.enable = true;
@@ -70,7 +71,4 @@ with lib;
     stylix.enable = true;
     stylix.hostname = hostname;
   };
-
-  waybar.enable = true;
-
 }
