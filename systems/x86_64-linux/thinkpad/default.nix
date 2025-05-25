@@ -22,6 +22,11 @@
   services.gvfs.enable = true;
   home-manager.backupFileExtension = "back";
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 6667];
+  };
+
   desktop = {
     gnome.enable = false;
     hyprland.enable = true;
