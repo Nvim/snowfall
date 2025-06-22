@@ -60,10 +60,11 @@ with lib;
   };
 
   tools = {
-    tofi.enable = true;
+    distrobox.enable = true;
     direnv.enable = true;
     rofi.enable = true;
     stylix.enable = true;
     stylix.hostname = hostname;
+    tofi.enable = true;
   };
 }

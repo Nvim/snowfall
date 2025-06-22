@@ -64,10 +64,9 @@ in
           # ls = "ls -hN --color=auto --group-directories-first";
           ls = "eza --icons=always --color-scale=all --color=always --group-directories-first --color-scale-mode=gradient";
           rf = "rm -rf";
-          c = "clear";
           # cat = "bat";
 
-          df = "cd ~/.dotfiles";
+          cfg = "cd ~/.config";
           dw = "cd ~/Downloads";
           dc = "cd ~/Documents";
           oo = "cd $NOTES_DIR";

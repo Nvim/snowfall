@@ -66,9 +66,10 @@ with lib;
 
   tools = {
     direnv.enable = true;
+    distrobox.enable = true;
     rofi.enable = true;
-    tofi.enable = true;
     stylix.enable = true;
     stylix.hostname = hostname;
+    tofi.enable = true;
   };
 }

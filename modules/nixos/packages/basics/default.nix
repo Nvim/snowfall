@@ -33,7 +33,7 @@ in
       firefox
       brave
       ungoogled-chromium
-      qutebrowser
+      # qutebrowser
       thunderbird-bin
       newsflash
       zathura
