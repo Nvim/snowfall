@@ -36,9 +36,16 @@ in
 
       #
 
+      fontDir = {
+        enable = true;
+        decompressFonts = true;
+      };
       packages = with pkgs; [
         material-symbols
         material-icons
+        dejavu_fonts
+        noto-fonts
+        liberation_ttf
         nerd-fonts.ubuntu
         nerd-fonts.ubuntu-mono
         nerd-fonts.jetbrains-mono

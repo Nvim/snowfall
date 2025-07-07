@@ -1,0 +1,114 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "native"
+[theme.overrides]
+# idle_bg = "#"
+# warning_bg = "#"
+# good_bg = "#"
+# info_fg = "#"
+idle_fg = "#c1c1c1"
+info_fg = "#c1c1c1"
+good_fg = "#c1c1c1"
+warning_fg = "#c1c1c1"
+critical_fg = "#c1c1c1"
+# idle_fg = "#c1c1c1"
+# info_bg = "#fbcb97"
+# good_fg = "#5f8787"
+# warning_fg = "#e78a53"
+# critical_bg = "#e78a53"
+# critical_fg = "#c1c1c1"
+
+[icons]
+icons = "awesome6"
+[icons.overrides]
+cpu = [""]
+
+[[block]]
+block = "focused_window"
+format = "$title.str(max_w:80) |"
+
+[[block]]
+block = "keyboard_layout"
+driver = "localebus"
+
+[[block]]
+block = "backlight"
+missing_format = ""
+[block.icons_overrides]
+backlight = [ "󰌶", "󱩒", "󰛨"]
+
+[[block]]
+block = "battery"
+driver = "upower"
+missing_format = ""
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "cpu"
+interval = 20
+format = "$icon $utilization{$boost |}"
+[block.icons_overrides]
+cpu_boost_on = " [BOOST]"
+cpu_boost_off = ""
+
+[[block]]
+block = "memory"
+interval = 20
+format = " $icon $mem_used.eng(w:4,u:B,p:Mi)"
+[block.icons_overrides]
+memory_mem = ""
+
+# format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
+
+[[block]]
+block = "disk_space"
+path = "/home/naim"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon home: $available.eng(w:2) "
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon root: $available.eng(w:2) "
+
+
+# [[block]]
+# block = "external_ip"
+# format = "$ip"
+# interval = 420
+
+# [[block]]
+# block = "custom"
+# command = "echo `whoami`@`cat /etc/hostname`"
+# interval = "once"
+
+[[block]]
+block = "custom"
+command = "echo  `uname -r | tr - .`"
+interval = "once"
+
+[[block]]
+block = "net"
+format = " $icon $ssid"
+format_alt = " $ip ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) - {$signal_strength $frequency |Wired connection}"
+interval = 30
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "

@@ -22,12 +22,12 @@ with lib;
   theming.qt.enable = false;
 
   # ags.enable = true;
-  waybar.enable = true;
+  waybar.enable = false;
   apps.foot = {
     enable = true;
     server = false;
   };
-  apps.alacritty.enable = true;
+  apps.alacritty.enable = false;
   apps.firefox = {
     enable = true;
     profileName = "BetterFox";
@@ -45,15 +45,15 @@ with lib;
   env.enable = true;
   hypr = {
     hyprland = {
-      enable = true;
+      enable = false;
       hostname = hostname;
       barcmd = "waybar &";
       menucmd = "tofi-drun";
     };
-    hyprlock.enable = true;
-    hypridle.enable = true;
-    pyprland.enable = true;
-    wlogout.enable = true;
+    hyprlock.enable = false;
+    hypridle.enable = false;
+    pyprland.enable = false;
+    wlogout.enable = false;
   };
   scripts = {
     dmenucmd = "tofi";
@@ -71,5 +71,13 @@ with lib;
     stylix.enable = true;
     stylix.hostname = hostname;
     tofi.enable = true;
+  };
+
+  wayland = {
+    i3bar-river.enable = true;
+    i3status-rust.enable = true;
+    river.enable = true;
+    swayidle.enable = true;
+    swaylock.enable = true;
   };
 }

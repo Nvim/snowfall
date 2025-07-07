@@ -35,6 +35,6 @@ in
     };
 
     # Configure console keymap
-    console.keyMap = "fr";
+    console.keyMap = "us";
   };
 }

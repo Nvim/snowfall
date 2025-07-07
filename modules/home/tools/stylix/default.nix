@@ -53,8 +53,8 @@ in
           name = "JetBrainsMono Nerd Font";
         };
         sansSerif = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font";
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Sans";
         };
         serif = {
           package = pkgs.nerd-fonts.jetbrains-mono;
@@ -80,6 +80,8 @@ in
       };
 
       targets = {
+        river.enable = true;
+        fontconfig.enable = false;
         firefox = {
           profileNames = [ firefoxProfile ];
           colorTheme.enable = false; # clashes with extensions
@@ -88,6 +90,7 @@ in
         nixvim.enable = false;
         neovim.enable = false;
         vim.enable = true;
+        i3bar-river.enable = false;
         waybar = {
           enable = false;
           addCss = true;

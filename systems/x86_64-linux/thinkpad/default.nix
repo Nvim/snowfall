@@ -24,12 +24,13 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 80 6667];
+    allowedTCPPorts = [ 22 ];
   };
 
   desktop = {
     gnome.enable = false;
-    hyprland.enable = true;
+    hyprland.enable = false;
+    river.enable = true;
     greetd.enable = true;
   };
 
