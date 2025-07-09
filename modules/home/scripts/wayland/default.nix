@@ -23,11 +23,25 @@ in
           inherit config;
         }
       )
+      ++
+      builtins.attrValues (
+        import ./displays.nix {
+          inherit pkgs;
+          inherit config;
+        }
+      )
+      ++
+      builtins.attrValues (
+        import ./power-menu.nix {
+          inherit pkgs;
+        }
+      )
       ++ [
-        (import ./kblayout.nix { inherit pkgs; inherit config; })
+        # (import ./displays.nix { inherit pkgs; inherit config; })
+        # (import ./kblayout.nix { inherit pkgs; inherit config; })
+        # (import ./power-menu.nix { inherit pkgs; })
       ];
     #(import ./bookmarks.nix { inherit pkgs; })
-    #(import ./power-menu.nix { inherit pkgs; })
 
   };
 }

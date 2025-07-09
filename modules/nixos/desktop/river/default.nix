@@ -19,10 +19,13 @@ in
       enable = true;
       xwayland.enable = false;
       extraPackages = with pkgs; [
-        swaybg
-        wl-clipboard
-        wf-recorder
         libsForQt5.qt5ct
+        swaybg
+        slurp
+        grim
+        wf-recorder
+        wl-clipboard
+        wlr-randr
       ];
     };
 

@@ -11,6 +11,7 @@ let
 in
 {
   options.scripts.dmenucmd = mkOpt types.str "${pkgs.rofi-wayland} -show drun" "dmenu-like prompt program";
+  options.scripts.defaultDisplay = mkOpt types.str "eDP-1" "default display name for device";
   options.scripts.basic = {
     enable = mkOpt types.bool true "Enable basic scripts";
   };

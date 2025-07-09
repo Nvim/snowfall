@@ -18,6 +18,7 @@ in
       enable = true;
       xwayland.enable = false;
       systemd.enable = true;
+      services.swaync.enable = true;
       extraConfig = let 
         colors = config.lib.stylix.colors.withHashtag;
       in
@@ -58,13 +59,26 @@ in
       ### BINDS #####################################################################
       ###############################################################################
 
+      riverctl keyboard-layout -options "grp:ctrl_space_toggle" us,fr
       ### BASICS ###
       riverctl map normal Super C close
       riverctl map normal Super+Shift Q exit
-      riverctl map normal Super Return spawn wezterm
       riverctl map normal Super+Shift L spawn 'swaylock -fF'
 
+      # Screenshot:
+      riverctl map normal Super+Alt P spawn 'grim -g "$(slurp)" - | wl-copy'
+      riverctl map normal Super+Shift+Alt P spawn 'rim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%s.png')'
+
+      # Notifications:
+      riverctl map normal Super+Alt N spawn 'swaync-client -t -sw' 
+      riverctl map normal Super+Shift+Alt N spawn 'swaync-client -d -sw' 
+
+      # Scripts
+      riverctl map normal Super Backspace spawn power-menu
+      riverctl map normal Super+Alt D spawn displays
+
       ### PROGRAMS ###
+      riverctl map normal Super Return spawn wezterm
       riverctl map normal Super P spawn tofi-drun 
 
       ### FOCUS ###

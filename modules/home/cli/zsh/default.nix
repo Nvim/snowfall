@@ -107,7 +107,7 @@ in
           source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         '';
         plugins = [ ];
-        initExtra = ''
+        initContent = ''
           bindkey '^n' history-search-forward 
           bindkey '^p' history-search-backward 
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
