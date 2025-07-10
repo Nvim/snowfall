@@ -19,6 +19,7 @@ in
       enable = true;
       xwayland.enable = false;
       extraPackages = with pkgs; [
+        river-filtile
         libsForQt5.qt5ct
         swaybg
         slurp
@@ -26,16 +27,8 @@ in
         wf-recorder
         wl-clipboard
         wlr-randr
+        pcmanfm
       ];
-    };
-
-    environment.sessionVariables = {
-      GDK_BACKEND = "wayland";
-      CLUTTER_BACKEND = "wayland";
-      QT_QPA_PLATFORM = "wayland";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      SDL_VIDEODRIVER = "wayland";
-      XDG_SESSION_TYPE = "wayland";
     };
 
     # xdg = {

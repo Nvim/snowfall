@@ -18,7 +18,7 @@ with lib;
   theming.qt.enable = false;
 
   ags.enable = false;
-  waybar.enable = true;
+  waybar.enable = false;
   apps.foot = {
     enable = true;
     server = false;
@@ -40,19 +40,19 @@ with lib;
   env.enable = true;
   hypr = {
     hyprland = {
-      enable = true;
+      enable = false;
       hostname = hostname;
       barcmd = "waybar &";
       menucmd = "tofi-drun";
     };
-    hyprlock.enable = true;
-    hypridle.enable = true;
-    pyprland.enable = true;
-    wlogout.enable = true;
+    hyprlock.enable = false;
+    hypridle.enable = false;
+    pyprland.enable = false;
+    wlogout.enable = false;
   };
   scripts = {
     dmenucmd = "tofi";
-    # dmenucmd = "${pkgs.rofi-wayland}/bin/rofi";
+    defaultDisplay = "DP-3";
     basic.enable = true;
     wayland.enable = true;
     x11.enable = false;
@@ -62,9 +62,17 @@ with lib;
   tools = {
     distrobox.enable = true;
     direnv.enable = true;
-    rofi.enable = true;
+    rofi.enable = false;
     stylix.enable = true;
     stylix.hostname = hostname;
     tofi.enable = true;
+  };
+
+  wayland = {
+    i3bar-river.enable = true;
+    i3status-rust.enable = true;
+    river.enable = true;
+    swayidle.enable = true;
+    swaylock.enable = true;
   };
 }

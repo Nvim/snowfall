@@ -14,11 +14,21 @@ in
     enable = mkOpt types.bool false "Enable river window manager";
   };
   config = mkIf cfg.enable {
+    services.swaync.enable = true;
     wayland.windowManager.river = {
       enable = true;
       xwayland.enable = false;
       systemd.enable = true;
-      services.swaync.enable = true;
+      systemd.variables = [ "--all" ];
+      extraSessionVariables = {
+        MOZ_ENABLE_WAYLAND = "1";
+        GDK_BACKEND = "wayland";
+        CLUTTER_BACKEND = "wayland";
+        QT_QPA_PLATFORM = "wayland";
+        QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+        SDL_VIDEODRIVER = "wayland";
+        XDG_SESSION_TYPE = "wayland";
+      };
       extraConfig = let 
         colors = config.lib.stylix.colors.withHashtag;
       in
@@ -44,10 +54,13 @@ in
       riverctl rule-add -app-id 'float*' -title 'foo' float
       riverctl rule-add -app-id 'firefox*' ssd
 
-      # Set the default layout generator to be rivertile and start it.
-      # River will send the process group of the init executable SIGTERM on exit.
-      riverctl default-layout rivertile
-      rivertile -view-padding 6 -outer-padding 6 &
+      riverctl default-layout filtile
+      filtile \
+        --output eDP-1 view-padding 5 outer-padding 5 \
+        --output HDMI-A-1 view-padding 6 outer-padding 8 \
+        --output DP-3 view-padding 6 outer-padding 8 \
+        --output HDMI-A-1 smart-padding-h 320 \
+        --output DP-3 smart-padding-h 320 &
 
       riverctl input pointer-1267-12691-ELAN06C6:00_04F3:3193_Touchpad natural-scroll enabled
       riverctl input pointer-1267-12691-ELAN06C6:00_04F3:3193_Touchpad tap enabled
@@ -67,7 +80,7 @@ in
 
       # Screenshot:
       riverctl map normal Super+Alt P spawn 'grim -g "$(slurp)" - | wl-copy'
-      riverctl map normal Super+Shift+Alt P spawn 'rim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%s.png')'
+      riverctl map normal Super+Shift+Alt P spawn 'grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%s.png')'
 
       # Notifications:
       riverctl map normal Super+Alt N spawn 'swaync-client -t -sw' 
@@ -90,15 +103,33 @@ in
       ### LAYOUT CONTROL ###
       riverctl map normal Super Space zoom
       riverctl map normal Super F toggle-float
-      riverctl map normal Super M toggle-fullscreen
-      riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-      riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
-      riverctl map normal Super+Alt H send-layout-cmd rivertile "main-count +1"
-      riverctl map normal Super+Alt L send-layout-cmd rivertile "main-count -1"
+      riverctl map normal Super M send-layout-cmd filtile "monocle"
+      riverctl map normal Super O send-layout-cmd filtile "smart-padding-h 320"
+      riverctl map normal Super+Shift O send-layout-cmd filtile "smart-padding off"
+      riverctl map normal Super T send-layout-cmd filtile "tag"
+      riverctl map normal Super F11 toggle-fullscreen
+
       riverctl map normal Super+Alt+Control H snap left
       riverctl map normal Super+Alt+Control J snap down
       riverctl map normal Super+Alt+Control K snap up
       riverctl map normal Super+Alt+Control L snap right
+
+      riverctl map normal Super H send-layout-cmd filtile "main-ratio -0.05"
+      riverctl map normal Super L send-layout-cmd filtile "main-ratio +0.05"
+      riverctl map normal Super+Alt H send-layout-cmd filtile "main-count +1"
+      riverctl map normal Super+Alt L send-layout-cmd filtile "main-count -1"
+
+      # Super+{Up,Right,Down,Left} to change layout orientation
+      riverctl map normal Super Up    send-layout-cmd filtile "main-location top"
+      riverctl map normal Super Right send-layout-cmd filtile "main-location right"
+      riverctl map normal Super Down  send-layout-cmd filtile "main-location bottom"
+      riverctl map normal Super Left  send-layout-cmd filtile "main-location left"
+
+      # Gaps:
+      riverctl map normal Super+Alt Period send-layout-cmd filtile "view-padding +1"
+      riverctl map normal Super+Alt+Control Period send-layout-cmd filtile "view-padding -1"
+      riverctl map normal Super+Alt Comma send-layout-cmd filtile "outer-padding +1"
+      riverctl map normal Super+Alt+Control Comma send-layout-cmd filtile "outer-padding -1"
 
       ### OUTPUTS ###
       riverctl map normal Super Period focus-output next
@@ -134,12 +165,6 @@ in
       all_tags=$(((1 << 32) - 1))
       riverctl map normal Super 0 set-focused-tags $all_tags
       riverctl map normal Super+Shift 0 set-view-tags $all_tags
-
-      # Super+{Up,Right,Down,Left} to change layout orientation
-      riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
-      riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-      riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-      riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 
       ### MEDIA ###
       for mode in normal locked

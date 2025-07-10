@@ -57,6 +57,7 @@ with lib;
   };
   scripts = {
     dmenucmd = "tofi";
+    defaultDisplay = "eDP-1";
     # dmenucmd = "${pkgs.rofi-wayland}/bin/rofi";
     basic.enable = true;
     wayland.enable = true;
@@ -65,9 +66,9 @@ with lib;
   };
 
   tools = {
-    direnv.enable = true;
     distrobox.enable = true;
-    rofi.enable = true;
+    direnv.enable = true;
+    rofi.enable = false;
     stylix.enable = true;
     stylix.hostname = hostname;
     tofi.enable = true;

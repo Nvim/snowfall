@@ -29,7 +29,7 @@ let
       11;
 in
 {
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+  imports = [ inputs.stylix.homeModules.stylix ];
   options.tools.stylix = {
     enable = mkOpt types.bool false "Enable stylix";
     hostname = mkOpt types.str "desktop" "Hostname (used to determine monitor settings)";

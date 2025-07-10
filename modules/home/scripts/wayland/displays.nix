@@ -8,7 +8,7 @@ in
     name = "displays";
     text = ''
     readarray -t displays < <(${pkgs.wlr-randr}/bin/wlr-randr --json | jq -r '.[] | select(.name != "${defaultDisplay}") | .name')
-    if [[ -z "''${displays[@]}" ]]; then
+    if [[ -z "''${displays[*]}" ]]; then
       notify-send "Displays script" "No displays to configure" -u normal -t 1000
       exit 1
     fi

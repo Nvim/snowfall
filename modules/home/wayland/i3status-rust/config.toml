@@ -50,6 +50,17 @@ button = "left"
 cmd = "pavucontrol"
 
 [[block]]
+block = "notify"
+driver = "swaync"
+format = " $icon {$paused{Off}|On} "
+[[block.click]]
+button = "left"
+action = "show"
+[[block.click]]
+button = "right"
+action = "toggle_paused"
+
+[[block]]
 block = "cpu"
 interval = 20
 format = "$icon $utilization{$boost |}"

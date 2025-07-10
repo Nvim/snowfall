@@ -34,6 +34,7 @@ in
       builtins.attrValues (
         import ./power-menu.nix {
           inherit pkgs;
+          inherit config;
         }
       )
       ++ [
