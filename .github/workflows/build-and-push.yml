@@ -1,15 +1,15 @@
 name: Build and Push NixOS Configuration to Cachix
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  workflow_dispatch:
-    inputs:
-      hosts:
-        description: 'Comma-separated list of hosts to build for'
-        required: true
-        default: 'thinkpad,desktop'
+  push:
+    branches:
+      - main
+  # workflow_dispatch:
+  #   inputs:
+  #     hosts:
+  #       description: 'Comma-separated list of hosts to build for'
+  #       required: true
+  #       default: 'thinkpad,desktop'
 
 jobs:
   build:
@@ -18,10 +18,21 @@ jobs:
       matrix:
         host: [thinkpad, desktop]
 
-    if: contains('${{ github.event.inputs.hosts }}', '${{ matrix.host }}')  # Only run if host is in the input list
+    # if: contains('${{ github.event.inputs.hosts }}', '${{ matrix.host }}')  # Only run if host is in the input list
     continue-on-error: true
 
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+
       - name: Checkout code
         uses: actions/checkout@v4
 
