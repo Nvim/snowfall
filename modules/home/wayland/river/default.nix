@@ -104,7 +104,7 @@ in
       riverctl map normal Super Space zoom
       riverctl map normal Super F toggle-float
       riverctl map normal Super M send-layout-cmd filtile "monocle"
-      riverctl map normal Super O send-layout-cmd filtile "smart-padding-h 320"
+      riverctl map normal Super O send-layout-cmd filtile "smart-padding-h 640"
       riverctl map normal Super+Shift O send-layout-cmd filtile "smart-padding off"
       riverctl map normal Super T send-layout-cmd filtile "tag"
       riverctl map normal Super F11 toggle-fullscreen

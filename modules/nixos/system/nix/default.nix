@@ -26,12 +26,14 @@ in
         "flakes"
       ];
       substituters = [
+        "https://mysnowfalldots99.cachix.org"
         "https://cache.nixos.org"
-        "https://hyprland.cachix.org"
+        # "https://hyprland.cachix.org"
         "https://prismlauncher.cachix.org"
       ];
       trusted-public-keys = [ 
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" 
+        "mysnowfalldots99.cachix.org-1:/pLiU1JG95rSLZFa2n/Jdmm7eoQIEmgJdyBzF5Y5uy8="
+        # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" 
         "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
       ];
     };

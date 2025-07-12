@@ -34,7 +34,8 @@
 
   desktop = {
     gnome.enable = false;
-    hyprland.enable = true;
+    hyprland.enable = false;
+    river.enable = true;
     greetd.enable = true;
   };
 
