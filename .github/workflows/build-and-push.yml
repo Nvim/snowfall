@@ -18,6 +18,9 @@ jobs:
       matrix:
         host: [thinkpad, desktop]
 
+    if: contains('${{ github.event.inputs.hosts }}', '${{ matrix.host }}')  # Only run if host is in the input list
+    continue-on-error: true
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -39,6 +42,4 @@ jobs:
 
       # Build configs 
       - name: Build config
-        if: contains('${{ github.event.inputs.hosts }}', matrix.host)  # Only run if host is in the input list
         run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
-        # run: nix build .#nixosConfigurations.thinkpad.config.system.build.toplevel
