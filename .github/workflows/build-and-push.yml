@@ -1,16 +1,22 @@
 name: Build and Push NixOS Configuration to Cachix
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+    inputs:
+      hosts:
+        description: 'Comma-separated list of hosts to build for'
+        required: true
+        default: 'thinkpad,desktop'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        config: [thinkpad, desktop]
+        host: [thinkpad, desktop]
 
     steps:
       - name: Checkout code
@@ -33,5 +39,6 @@ jobs:
 
       # Build configs 
       - name: Build config
-        run: nix build .#nixosConfigurations.${{ matrix.config }}.config.system.build.toplevel
+        if: contains('${{ github.event.inputs.hosts }}', matrix.host)  # Only run if host is in the input list
+        run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
         # run: nix build .#nixosConfigurations.thinkpad.config.system.build.toplevel
