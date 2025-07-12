@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config: [thinkpad, desktop]
 
     steps:
       - name: Checkout code
@@ -28,9 +31,7 @@ jobs:
           name: mysnowfalldots99
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      # Build configs separately so one failure doesn't break both
-      - name: Build Thinkpad config
-        run: nix build .#nixosConfigurations.thinkpad.config.system.build.toplevel
-
-      - name: Build Desktop config
-        run: nix build .#nixosConfigurations.desktop.config.system.build.toplevel
+      # Build configs 
+      - name: Build config
+        run: nix build .#nixosConfigurations.${{ matrix.config }}.config.system.build.toplevel
+        # run: nix build .#nixosConfigurations.thinkpad.config.system.build.toplevel
