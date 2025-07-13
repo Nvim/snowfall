@@ -22,7 +22,9 @@ jobs:
     continue-on-error: true
 
     steps:
-      - uses: wimpysworld/nothing-but-nix@main
+      - name: Start space saver
+        uses: wimpysworld/nothing-but-nix@main
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -32,7 +34,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Print Nix version
-        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+        run: nix --version
 
       # Enable cachix store
       - name: Use Cachix

@@ -78,6 +78,7 @@ with lib;
     i3bar-river.enable = true;
     i3status-rust.enable = true;
     river.enable = true;
+    river.hostname = hostname;
     swayidle.enable = true;
     swaylock.enable = true;
   };
