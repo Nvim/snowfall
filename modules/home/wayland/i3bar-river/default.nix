@@ -23,17 +23,17 @@ in
       in
       {
         command = "i3status-rs";
-        background = "${colors.base01}";
-        color = "${colors.base05}";
-        separator = "${colors.base0B}";
-        tag_fg = "${colors.base0D}";
-        tag_bg = "${colors.base01}";
+        background = "${colors.base00}";
+        color = "${colors.base04}";
+        separator = "${colors.base03}";
+        tag_fg = "${colors.base06}";
+        tag_bg = "${colors.base00}";
         tag_focused_fg = "${colors.base05}";
-        tag_focused_bg = "${colors.base08}";
-        tag_urgent_fg = "${colors.base0A}";
-        tag_urgent_bg = "${colors.base0F}";
-        tag_inactive_fg = "${colors.base0D}";
-        tag_inactive_bg = "${colors.base01}";
+        tag_inactive_fg = "${colors.base05}";
+        tag_urgent_fg = "${colors.base05}";
+        tag_focused_bg = "${colors.base0D}";
+        tag_inactive_bg = "${colors.base00}";
+        tag_urgent_bg = "${colors.base08}";
         font = "${font} 10";
         height = 20;
         margin_top = 0;

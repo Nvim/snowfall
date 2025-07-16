@@ -28,7 +28,7 @@ in
       mouse = true;
       prefix = "C-b";
       resizeAmount = 15;
-      # sensibleOnTop = true;
+      sensibleOnTop = true;
 
       extraConfig = ''
         bind '"' split-window -v -c "#{pane_current_path}"
@@ -36,7 +36,7 @@ in
       '';
 
       plugins = with pkgs; [
-        tmuxPlugins.sensible
+        # tmuxPlugins.sensible
         tmuxPlugins.yank
         tmuxPlugins.vim-tmux-navigator
         {

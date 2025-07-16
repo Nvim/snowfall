@@ -25,7 +25,7 @@ with lib;
   waybar.enable = false;
   apps.foot = {
     enable = true;
-    server = false;
+    server = true;
   };
   apps.alacritty.enable = false;
   apps.firefox = {
@@ -33,7 +33,7 @@ with lib;
     profileName = "BetterFox";
   };
   apps.ghostty.enable = false;
-  apps.wezterm.enable = true;
+  apps.wezterm.enable = false;
   apps.zathura.enable = true;
   cli = {
     neovim.enable = true;

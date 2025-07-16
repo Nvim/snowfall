@@ -21,14 +21,15 @@ with lib;
   waybar.enable = false;
   apps.foot = {
     enable = true;
-    server = false;
+    server = true;
   };
   apps.alacritty.enable = true;
   apps.firefox = {
     enable = true;
     profileName = "BetterFox";
   };
-  apps.wezterm.enable = true;
+  apps.wezterm.enable = false;
+  apps.ghostty.enable = false;
   apps.zathura.enable = true;
   cli = {
     neovim.enable = true;

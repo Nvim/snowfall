@@ -20,6 +20,7 @@ in
       xwayland.enable = false;
       extraPackages = with pkgs; [
         river-filtile
+        wl-color-picker
         libsForQt5.qt5ct
         swaybg
         slurp

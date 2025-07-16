@@ -103,7 +103,7 @@ in
           riverctl map normal Super+Alt D spawn displays
 
           ### PROGRAMS ###
-          riverctl map normal Super Return spawn wezterm
+          riverctl map normal Super Return spawn foot
           riverctl map normal Super P spawn tofi-drun 
 
           ### FOCUS ###

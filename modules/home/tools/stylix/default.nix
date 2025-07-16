@@ -40,12 +40,32 @@ in
       enable = true;
       autoEnable = true;
 
-      opacity.terminal = 0.92;
+      opacity.terminal = 0.96;
       image = wallp;
       polarity = "dark";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-bathory.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-gorgoroth.yaml";
+
+      # custom zenbones dark (based on neovim)
+      override = {
+        base00 = "1C1917";
+        base01 = "2E2927";
+        base02 = "433C39";
+        base03 = "59514D";
+        base04 = "867A74";
+        base05 = "B4BDC3";
+        base06 = "B4BDC3";
+        base07 = "C4CACF";
+        BASE08 = "CB7A83";
+        BASE09 = "DFAF8F";
+        BASE0A = "E0CF9F";
+        BASE0B = "5F7F5F";
+        BASE0C = "66A5AD";
+        BASE0D = "315167";
+        base0E = "B279A7";
+        BASE0F = "55392C";
+      };
 
       fonts = {
         monospace = {
@@ -80,6 +100,7 @@ in
       };
 
       targets = {
+        ghostty.enable = false;
         river.enable = true;
         fontconfig.enable = false;
         firefox = {
