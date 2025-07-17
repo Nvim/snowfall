@@ -46,6 +46,7 @@ in
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-gorgoroth.yaml";
+      # base16Scheme = builtins.path { path= ./base16.yaml; };
 
       # custom zenbones dark (based on neovim)
       override = {
@@ -57,14 +58,14 @@ in
         base05 = "B4BDC3";
         base06 = "B4BDC3";
         base07 = "C4CACF";
-        BASE08 = "CB7A83";
-        BASE09 = "DFAF8F";
-        BASE0A = "E0CF9F";
-        BASE0B = "5F7F5F";
-        BASE0C = "66A5AD";
-        BASE0D = "315167";
+        base08 = "CB7A83";
+        base09 = "DFAF8F";
+        base0A = "E0CF9F";
+        base0B = "5F7F5F";
+        base0C = "66A5AD";
+        base0D = "315167";
         base0E = "B279A7";
-        BASE0F = "55392C";
+        base0F = "55392C";
       };
 
       fonts = {
