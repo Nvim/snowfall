@@ -27,7 +27,7 @@ in
       shellWrapperName = "y";
 
       settings = {
-        manager = {
+        mgr = {
           show_hidden = true;
         };
         preview = {

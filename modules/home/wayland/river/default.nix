@@ -14,6 +14,7 @@ in
   options.wayland.river = {
     enable = mkOpt types.bool false "Enable river window manager";
     hostname = mkOpt types.str "desktop" "Hostname (used for monitor settings)";
+    extraInit = mkOpt types.str "" "Extra config lines";
   };
   config = mkIf cfg.enable {
     services.swaync.enable = true;
@@ -40,6 +41,8 @@ in
                 filtile \
                   --output DP-3 view-padding 6 outer-padding 8 \
                   --output DP-3 smart-padding-h 320 &
+                  --output HDMI-A-1 view-padding 6 outer-padding 8 \
+                  --output HDMI-A-1 smart-padding-h 320 &
               ''
             else
               ''
@@ -49,13 +52,15 @@ in
                   --output HDMI-A-1 smart-padding-h 320 &
               '';
         in
-        ''
+        lib.strings.concatStrings [
+          ''
           #!/bin/sh
           ###############################################################################
           ### CONFIG ####################################################################
           ###############################################################################
 
           # Set background and border color
+          # -m [ stretch | fill | fit | center | tile ]
           ${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} &
           # riverctl background-color ${colors.base05}
           # riverctl border-color-focused ${colors.base05}
@@ -84,7 +89,7 @@ in
           ### BINDS #####################################################################
           ###############################################################################
 
-          riverctl keyboard-layout -options "grp:ctrl_space_toggle" us,fr
+          riverctl keyboard-layout -options "grp:win_space_toggle" us,fr
           ### BASICS ###
           riverctl map normal Super C close
           riverctl map normal Super+Shift Q exit
@@ -201,7 +206,9 @@ in
           done
 
           riverctl spawn i3bar-river
-        '';
+        ''
+        cfg.extraInit
+      ];
     };
   };
 }

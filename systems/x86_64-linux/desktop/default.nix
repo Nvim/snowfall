@@ -20,7 +20,22 @@
 
   services.openssh.enable = true;
   services.gvfs.enable = true;
+
+  # PERFORMANCE
   services.power-profiles-daemon.enable = true;
+
+  environment.systemPackages = [
+    pkgs.linuxKernel.packages.linux_zen.cpupower
+  ];
+  systemd.services.disable-boost = {
+    description = "Disable CPU frequency boost with cpupower";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "sys-fs.mount" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.linuxKernel.packages.linux_zen.cpupower}/bin/cpupower set --turbo-boost 0";
+    };
+  };
 
   boot = {
     bootspec.enable = true;
@@ -28,10 +43,17 @@
       "amd_pstate=active" # CPU governor
       "split_lock_mitigate=off" # prevents some games from being slowed
       "random.trust_cpu=on" # pretty sure this is useless
+      "nowatchdog=0"
     ];
-    blacklistedKernelModules = [ "sp5100_tco" ];
+    blacklistedKernelModules = [ 
+      "sp5100_tco" 
+      "k10temp" # temperature monitor, replaced by zenpower
+    ];
+    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+    kernelModules = [ "zenpower" ];
   };
 
+  # CUSTOM MODULES 
   desktop = {
     gnome.enable = false;
     hyprland.enable = false;
@@ -91,7 +113,6 @@
     ];
     createHome = true;
     shell = pkgs.zsh;
-    packages = with pkgs; [ kitty ];
   };
 
   # systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";

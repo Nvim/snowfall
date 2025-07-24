@@ -11,7 +11,7 @@ let
   cfg = config.tools.stylix;
   firefoxProfile = config.apps.firefox.profileName;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/0041.jpg;
+  wallp = ../../../../wallp/0280.jpg;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then

@@ -72,8 +72,13 @@ with lib;
   wayland = {
     i3bar-river.enable = true;
     i3status-rust.enable = true;
-    river.enable = true;
-    river.hostname = hostname;
+    river = {
+      enable = true;
+      hostname = hostname;
+      extraInit = ''
+        wlr-randr --output DP-3 --off
+      '';
+    };
     swayidle.enable = true;
     swaylock.enable = true;
   };

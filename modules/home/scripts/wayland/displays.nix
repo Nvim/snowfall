@@ -7,7 +7,7 @@ in
   displays = pkgs.writeShellApplication {
     name = "displays";
     text = ''
-    readarray -t displays < <(${pkgs.wlr-randr}/bin/wlr-randr --json | jq -r '.[] | select(.name != "${defaultDisplay}") | .name')
+    readarray -t displays < <(${pkgs.wlr-randr}/bin/wlr-randr --json | jq -r '.[].name')
     if [[ -z "''${displays[*]}" ]]; then
       notify-send "Displays script" "No displays to configure" -u normal -t 1000
       exit 1
@@ -24,8 +24,15 @@ in
     op3="Top"
     op4="OFF"
     op5="ON"
-    options="Left\nRight\nTop\n"
-    options="''${op1}\n''${op2}\n''${op3}\n''${op4}\n''${op5}"
+    options=""
+
+    # If selected main display, only allow toggling ON/OFF
+    if [[ "$display" = "${defaultDisplay}" ]]; then
+      options="''${op4}\n''${op5}"
+    else
+      options="''${op1}\n''${op2}\n''${op3}\n''${op4}\n''${op5}"
+    fi
+
     selected=$(echo -e "$options" | ${dmenucmd})
 
     case "$selected" in
