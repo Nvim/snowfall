@@ -89,7 +89,7 @@ in
           ### BINDS #####################################################################
           ###############################################################################
 
-          riverctl keyboard-layout -options "grp:win_space_toggle" us,fr
+          riverctl keyboard-layout -options "grp:rctrl_toggle" us,fr
           ### BASICS ###
           riverctl map normal Super C close
           riverctl map normal Super+Shift Q exit

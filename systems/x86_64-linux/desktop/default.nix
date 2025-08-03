@@ -86,7 +86,7 @@
     battery.enable = false;
     battery.hostname = hostname;
     boot.enable = true;
-    cron.enable = true;
+    cron.enable = false;
     cron.autobisync = false;
     dbus.enable = false;
     fonts.enable = true;

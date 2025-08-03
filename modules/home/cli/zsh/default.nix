@@ -61,8 +61,10 @@ in
     programs.zsh =
       let
         myAliases = {
-          # ls = "ls -hN --color=auto --group-directories-first";
           ls = "eza --icons=always --color-scale=all --color=always --group-directories-first --color-scale-mode=gradient";
+          lt = "eza --tree --icons";
+
+          ff = "fzf --preview 'bat --style=numbers --color=always {}'";
           rf = "rm -rf";
           # cat = "bat";
 
