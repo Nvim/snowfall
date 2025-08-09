@@ -72,9 +72,27 @@ in
           # Set keyboard repeat rate
           riverctl set-repeat 50 300
 
-          # Make all views with an app-id that starts with "float" and title "foo" start floating.
-          riverctl rule-add -app-id 'float*' -title 'foo' float
+          # Rules
           riverctl rule-add -app-id '*' ssd
+          riverctl rule-add -title '*Mozilla Firefox' tags $((1 << 1)) 
+          riverctl rule-add -title 'foot' tags $((1 << 0)) 
+
+          riverctl rule-add -title '*- Image Viewer*' float;
+
+          riverctl rule-add -title '*WebCord*' float;
+          riverctl rule-add -title '*WebCord*' tags $((1 << 7)) ;
+          riverctl rule-add -title '*WebCord*' dimensions 1600 900 ;
+          riverctl rule-add -title '*WebCord*' position 50 50 ;
+
+          riverctl rule-add -title '*Spotify*' float;
+          riverctl rule-add -title '*Spotify*' tags $((1 << 7));
+          riverctl rule-add -title '*Spotify*' dimensions 1600 900;
+          riverctl rule-add -title '*Spotify*' position 1800 490;
+
+          riverctl rule-add -title '*KeepassXC' float
+          riverctl rule-add -title '*KeepassXC' tags $((1 << 8)) 
+          riverctl rule-add -title '*KeepassXC' dimensions 1600 900 
+
 
           riverctl default-layout filtile
           ${tileCmd}
@@ -94,6 +112,7 @@ in
           riverctl map normal Super C close
           riverctl map normal Super+Shift Q exit
           riverctl map normal Super+Shift L spawn 'swaylock -fF'
+          riverctl map normal Super E spawn 'pcmanfm'
 
           # Screenshot:
           riverctl map normal Super+Alt P spawn 'grim -g "$(slurp)" - | wl-copy'
@@ -176,6 +195,13 @@ in
             # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
             riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
           done
+
+          # Toggle latest tags:
+          riverctl map normal Alt Tab focus-previous-tags
+
+          # Focus next/prev:
+          riverctl map normal Super Tab spawn 'flow cycle-tags next 9'
+          riverctl map normal Super+Shift Tab spawn 'flow cycle-tags previous 9'
 
           # Super+0 to focus all tags
           # Super+Shift+0 to tag focused view with all tags

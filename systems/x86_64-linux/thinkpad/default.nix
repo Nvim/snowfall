@@ -58,7 +58,7 @@
 
   system = {
     battery.enable = true;
-    battery.hostname = hostname;
+    # battery.hostname = hostname;
     boot.enable = true;
     cron.enable = false;
     dbus.enable = false;

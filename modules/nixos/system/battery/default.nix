@@ -8,12 +8,12 @@ with lib;
 with lib.dotfiles;
 let
   cfg = config.system.battery;
-  hostname = cfg.hostname;
+  # hostname = cfg.hostname;
 in
 {
   options.system.battery = with types; {
     enable = mkEnableOption "Enable battery optimization";
-    hostname = mkOpt types.str "desktop" "Hostname (used to determine monitor settings)";
+    # hostname = mkOpt types.str "thinkpad" "Hostname (used to determine monitor settings)";
   };
 
   config = mkIf cfg.enable {
@@ -27,14 +27,14 @@ in
       };
     };
 
-    # Disable GNOMEs power management
+    # Disable GNOMEs power management (conflicts with TLP)
     services.power-profiles-daemon.enable = false;
 
     # Enable powertop
-    powerManagement.powertop.enable = if hostname == "desktop" then false else true;
+    powerManagement.powertop.enable = true;
 
     # Enable thermald (only necessary if on Intel CPUs)
-    services.thermald.enable = if hostname == "desktop" then false else true;
+    services.thermald.enable = true;
 
     services.upower.enable = true;
   };

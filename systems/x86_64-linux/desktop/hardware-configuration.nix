@@ -48,21 +48,25 @@
   fileSystems."/Games" = {
     device = "/dev/lvmroot/games";
     fsType = "ext4";
+    options = [ "x-gvfs-show" "x-gvfs-name=Games" ];
   };
 
   fileSystems."/Downloads" = {
     device = "/dev/lvmwarm/Downloads";
     fsType = "ext4";
+    options = [ "x-gvfs-show" "x-gvfs-name=Downloads" ];
   };
 
   fileSystems."/Emu" = {
     device = "/dev/lvmwarm/Emu";
     fsType = "ext4";
+    options = [ "x-gvfs-show" "x-gvfs-name=Emu" ];
   };
 
   fileSystems."/VMS" = {
     device = "/dev/lvmwarm/VMS";
     fsType = "ext4";
+    options = [ "x-gvfs-show" "x-gvfs-name=VMs" ];
   };
 
   swapDevices = [

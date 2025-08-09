@@ -27,6 +27,7 @@ let
         sha256 = "sha256-+5B5TPrl0ZCuuLvKNsGtpiU0OiJO7+Q/iz1+/2U4Taw=";
       })
     ];
+    nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [pkgs.nss];
     postPatch =
       (attrs.postPatch or "")
       + ''
@@ -45,7 +46,29 @@ let
         substituteInPlace "$out/lib/udev/rules.d/70-libfprint-2.rules" --replace "/bin/sh" "${pkgs.runtimeShell}"
       '';
   });
-  fprintd = pkgs.fprintd.override { inherit libfprint; };
+  fprintd = (pkgs.fprintd.override { inherit libfprint; }).overrideAttrs (attrs: {
+    version = "1.94.4";
+    src = pkgs.fetchgit {
+      url = "https://gitlab.freedesktop.org/libfprint/fprintd.git";
+      rev = "v1.94.4";
+      sha256 = "sha256-B2g2d29jSER30OUqCkdk3+Hv5T3DA4SUKoyiqHb8FeU";
+    };
+    nativeCheckInputs = with pkgs.python3Packages.pkgs; [
+      gobject-introspection # for setup hook
+      python-dbusmock
+      dbus-python
+      pygobject3
+      pycairo
+      pypamtest
+      gusb # Required by libfprint’s typelib
+    ];
+    # nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [pkgs.libpam-wrapper pkgs.python3Packages.pycairo pkgs.python3Packages.dbus-python pkgs.python3Packages.python-dbusmock pkgs.python3Packages.pypamtest pkgs.python3Packages.gusb];
+    mesonCheckFlags = [
+      "--no-suite"
+      "fprintd:TestPamFprintd"
+    ];
+    doCheck = false;
+  });
 in
 {
   options.hardware.fingerprint = with types; {

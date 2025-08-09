@@ -20,12 +20,14 @@
 
   services.openssh.enable = true;
   services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   # PERFORMANCE
   services.power-profiles-daemon.enable = true;
 
   environment.systemPackages = [
     pkgs.linuxKernel.packages.linux_zen.cpupower
+    pkgs.openrgb
   ];
   systemd.services.disable-boost = {
     description = "Disable CPU frequency boost with cpupower";
@@ -84,7 +86,7 @@
 
   system = {
     battery.enable = false;
-    battery.hostname = hostname;
+    # battery.hostname = hostname;
     boot.enable = true;
     cron.enable = false;
     cron.autobisync = false;

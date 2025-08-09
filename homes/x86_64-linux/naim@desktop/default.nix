@@ -9,6 +9,24 @@
 }:
 with lib;
 {
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "librewolf.desktop";
+      "x-scheme-handler/https" = "librewolf.desktop";
+      "x-scheme-handler/about" = "librewolf.desktop";
+      "x-scheme-handler/unknown" = "librewolf.desktop";
+
+      "image/png"="org.xfce.ristretto.desktop";
+      "image/jpeg"="org.xfce.ristretto.desktop";
+      "image/wepb"="org.xfce.ristretto.desktop";
+      "image/gif"="org.xfce.ristretto.desktop";
+
+      "text/plain" = "nvim.desktop";
+      "application/pdf" = "zathura.desktop";
+    };
+  };
   programs.mangohud.enable = true;
   xdg.enable = true;
   snowfallorg.user.name = username;
