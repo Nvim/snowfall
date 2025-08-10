@@ -22,12 +22,22 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  # OpenRGB:
+  services.udev = {
+    enable = true;
+    packages = [ pkgs.openrgb ];
+  };
+  services.hardware.openrgb = { 
+    enable = true; 
+    package = pkgs.openrgb; 
+    motherboard = "amd"; 
+  };
+
   # PERFORMANCE
   services.power-profiles-daemon.enable = true;
 
   environment.systemPackages = [
     pkgs.linuxKernel.packages.linux_zen.cpupower
-    pkgs.openrgb
   ];
   systemd.services.disable-boost = {
     description = "Disable CPU frequency boost with cpupower";
