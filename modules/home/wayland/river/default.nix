@@ -89,10 +89,12 @@ in
           riverctl rule-add -title '*Spotify*' dimensions 1600 900;
           riverctl rule-add -title '*Spotify*' position 1800 490;
 
-          riverctl rule-add -title '*KeepassXC' float
-          riverctl rule-add -title '*KeepassXC' tags $((1 << 8)) 
-          riverctl rule-add -title '*KeepassXC' dimensions 1600 900 
+          riverctl rule-add -title '*KeePassXC*' float
+          riverctl rule-add -title '*KeePassXC*' tags $((1 << 8)) 
+          riverctl rule-add -title '*KeePassXC*' dimensions 1600 900 
 
+          riverctl rule-add -title '*Volume Control*' float;
+          riverctl rule-add -title '*Volume Control*' dimensions 800 600;
 
           riverctl default-layout filtile
           ${tileCmd}
@@ -216,8 +218,8 @@ in
             riverctl map $mode None XF86Eject spawn 'eject -T'
 
             # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-            riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-            riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+            riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+'
+            riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-'
             riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 
             # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)

@@ -43,6 +43,7 @@ in
       mission-center
       cameractrls-gtk4
       kdePackages.kdeconnect-kde
+      mpv
 
       # cli:
       gtypist
@@ -59,6 +60,7 @@ in
       ffmpeg
       lazygit
       ani-cli
+      yt-dlp
       portal
 
       # utils:

@@ -246,13 +246,16 @@ user_pref("privacy.clearOnShutdown_v2.cache", true); // DEFAULT
 user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true); // DEFAULT
 user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", false);
 
+// Disable DoH in favor of PiHole+Unbound setup:
+user_pref("network.trr.mode", 5); 
+
 // PREF: enforce DNS-over-HTTPS (DoH)
-user_pref("network.trr.mode", 2);
-user_pref("network.trr.max-fails", 5);
+// user_pref("network.trr.mode", 2); 
+// user_pref("network.trr.max-fails", 5);
 
 // PREF: set DoH provider
 // user_pref("network.trr.uri", "https://dns.dnswarden.com/00000000000000000000018"); // Hagezi Pro + TIF
-user_pref("network.trr.uri", "https://base.dns.mullvad.net/dns-query");
+// user_pref("network.trr.uri", "https://base.dns.mullvad.net/dns-query");
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
