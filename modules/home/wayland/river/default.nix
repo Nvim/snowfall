@@ -78,6 +78,8 @@ in
           riverctl rule-add -title 'foot' tags $((1 << 0)) 
 
           riverctl rule-add -title '*- Image Viewer*' float;
+          riverctl rule-add -title '*Heavy Weather' float
+          riverctl rule-add -title '*Bitwarden*' float;
 
           riverctl rule-add -title '*WebCord*' float;
           riverctl rule-add -title '*WebCord*' tags $((1 << 7)) ;
@@ -114,7 +116,6 @@ in
           riverctl map normal Super C close
           riverctl map normal Super+Shift Q exit
           riverctl map normal Super+Shift L spawn 'swaylock -fF'
-          riverctl map normal Super E spawn 'pcmanfm'
 
           # Screenshot:
           riverctl map normal Super+Alt P spawn 'grim -g "$(slurp)" - | wl-copy'
@@ -127,10 +128,16 @@ in
           # Scripts
           riverctl map normal Super Backspace spawn power-menu
           riverctl map normal Super+Alt D spawn displays
+          riverctl map normal Super Escape spawn syncmenu
 
           ### PROGRAMS ###
           riverctl map normal Super Return spawn foot
           riverctl map normal Super P spawn tofi-drun 
+          riverctl map normal Super E spawn 'pcmanfm'
+          riverctl map normal Super D spawn 'webcord' 
+          riverctl map normal Super V spawn 'pavucontrol' 
+          riverctl map normal Super B spawn 'firefox --new-window --ozone-platform=wayland'
+          riverctl map normal Super+Shift B spawn 'firefox --private-window --ozone-platform=wayland'
 
           ### FOCUS ###
           riverctl map normal Super J focus-view next
