@@ -50,10 +50,12 @@
 
   packages = {
     basics.enable = true;
+    bitwarden.enable = true;
     proton.enable = true;
     dev.enable = true;
     gtk.enable = true;
     latex.enable = false;
+    nextcloud.enable = true;
   };
 
   system = {
