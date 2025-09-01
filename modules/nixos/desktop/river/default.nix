@@ -49,6 +49,7 @@ in
     security.pam.services.swaylock =
       if cfg.enableFprint then
         {
+          enableGnomeKeyring = true; 
           fprintAuth = true;
           text = ''
             # account management.
@@ -84,21 +85,16 @@ in
           };
         };
       };
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal
+      ];
+      configPackages = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal
+      ];
+      xdgOpenUsePortal = true;
     };
-    # xdg = {
-    #   portal = with pkgs; {
-    #     enable = true;
-    #     configPackages = [
-    #       xdg-desktop-portal-gtk
-    #       xdg-desktop-portal
-    #     ];
-    #     extraPortals = [
-    #       xdg-desktop-portal-gtk
-    #       xdg-desktop-portal
-    #     ];
-    #     xdgOpenUsePortal = true;
-    #   };
-    # };
 
     # Enable gnome polkit
     systemd = {
@@ -116,5 +112,12 @@ in
         };
       };
     };
+
+    # GNOME keyring:
+    services.gnome.gnome-keyring.enable = true;
+    programs.seahorse.enable = true;
+    security.pam.services.greetd.enableGnomeKeyring = if cfg.enableFprint then true else false;
+    security.pam.services.greetd-password.enableGnomeKeyring = if cfg.enableFprint then true else false;
+    environment.systemPackages = [ pkgs.lssecret ];
   };
 }

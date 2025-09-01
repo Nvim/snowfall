@@ -9,6 +9,10 @@
 }:
 with lib;
 {
+  services.nextcloud-client = {
+    enable = true;
+    startInBackground = true;
+  };
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
