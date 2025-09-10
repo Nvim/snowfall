@@ -16,11 +16,11 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nautilus
+      # nautilus
       gnome-disk-utility
       gnome-calculator
-      totem
-      gnome-usage
+      # totem
+      # gnome-usage
       xfce.ristretto
       xfce.tumbler
     ];

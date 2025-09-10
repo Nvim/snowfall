@@ -29,7 +29,7 @@ in
       rnote
       webcord
       spotify
-      spicetify-cli
+      # spicetify-cli
       firefox
       brave
       ungoogled-chromium
@@ -39,10 +39,10 @@ in
       zathura
       libreoffice-qt-fresh
       # upscaler TODO: broken
-      parabolic
-      mission-center
-      cameractrls-gtk4
-      kdePackages.kdeconnect-kde
+      # parabolic
+      # mission-center
+      # cameractrls-gtk4
+      # kdePackages.kdeconnect-kde
       mpv
 
       # cli:

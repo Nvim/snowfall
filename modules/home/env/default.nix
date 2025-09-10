@@ -22,7 +22,7 @@ in
       BROWSER = "firefox";
       MENU = "dmenu";
       NVIM_DIR = "$HOME/.config/newvim";
-      NOTES_DIR = "$HOME/Documents/Sync/Obsidian"; # Notes
+      NOTES_DIR = "$HOME/Documents/Nextcloud/Obsidian"; # Notes
       SYNC_DIR = "$HOME/Documents/Sync"; # Rest
       MANPAGER= "nvim +Man!";
 

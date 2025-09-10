@@ -62,7 +62,7 @@ action = "toggle_paused"
 
 [[block]]
 block = "cpu"
-interval = 20
+interval = 10
 format = "$icon $utilization{$boost |}"
 [block.icons_overrides]
 cpu_boost_on = " [BOOST]"
@@ -70,7 +70,7 @@ cpu_boost_off = ""
 
 [[block]]
 block = "memory"
-interval = 20
+interval = 10
 format = " $icon $mem_used.eng(w:4,u:B,p:Mi)"
 [block.icons_overrides]
 memory_mem = ""
@@ -82,20 +82,20 @@ block = "disk_space"
 path = "/home/naim"
 info_type = "available"
 alert_unit = "GB"
-interval = 20
+interval = 40
 warning = 20.0
 alert = 10.0
-format = " $icon home: $available.eng(w:2) "
+format = " $icon ~: $available.eng(w:2) "
 
 [[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
 alert_unit = "GB"
-interval = 20
+interval = 40
 warning = 20.0
 alert = 10.0
-format = " $icon root: $available.eng(w:2) "
+format = " $icon /: $available.eng(w:2) "
 
 
 # [[block]]
@@ -117,9 +117,9 @@ interval = "once"
 block = "net"
 format = " $icon $ssid"
 format_alt = " $ip ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) - {$signal_strength $frequency |Wired connection}"
-interval = 30
+interval = 10
 
 [[block]]
 block = "time"
 interval = 5
-format = " $timestamp.datetime(f:'%a %d/%m %R') "
+format = " $timestamp.datetime(f:'%a %m/%d %R') "

@@ -38,11 +38,11 @@ in
       # jetbrains.datagrip
       vscodium
       neovide
-      zed-editor
-      renderdoc
+      # zed-editor
+      # renderdoc
 
       # Languages
-      python312Packages.python
+      # python312Packages.python
       lua
 
       # Tools

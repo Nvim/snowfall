@@ -40,7 +40,7 @@
   hardware = {
     audio.enable = true;
     bluetooth.enable = true;
-    fingerprint.enable = false;
+    fingerprint.enable = true;
     gpu.amd.enable = false;
     networking.enable = true;
     networking.hostname = hostname;
@@ -55,6 +55,7 @@
     dev.enable = true;
     gtk.enable = true;
     latex.enable = false;
+    misc.enable = false;
     nextcloud.enable = true;
   };
 
