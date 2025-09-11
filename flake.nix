@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    xremap = {
+      url = "github:xremap/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";
@@ -76,6 +81,11 @@
       channels-config = {
         allowUnfree = true;
       };
+
+      # System modules:
+      systems.modules.nixos = with inputs; [
+        xremap.nixosModules.default
+      ];
 
       # Host-specific settings:
       systems.hosts.desktop.specialArgs = {
