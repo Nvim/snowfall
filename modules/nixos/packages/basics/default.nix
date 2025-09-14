@@ -74,6 +74,9 @@ in
       bat
       eza
       appimage-run
+      openssl
+      dnsutils
+      zip
       # inputs.nix-alien.packages.${system}.nix-alien
     ];
   };
