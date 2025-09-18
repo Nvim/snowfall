@@ -20,36 +20,29 @@ in
       # C/CPP
       gcc
       gnumake
-      gdb
       # cmake
       # lldb
       # valgrind
       # criterion
       # gdbgui
 
-      # Web:
-      nodePackages_latest.nodejs
-      nodePackages_latest.typescript
-      # bun
-
       # IDEs & editors:
       # neovim
       # jetbrains.idea-ultimate
       # jetbrains.datagrip
       vscodium
-      neovide
       # zed-editor
       # renderdoc
 
       # Languages
-      # python312Packages.python
+      python313Packages.python
       lua
 
       # Tools
       wget
       curl
-      xh
-      atac
+      # xh
+      # atac
       yq
       jqp
       # atuin
@@ -62,9 +55,9 @@ in
       pstree
 
       # OpenGL debugging:
-      mesa-demos
-      glxinfo
-      clinfo
+      # mesa-demos
+      # glxinfo
+      # clinfo
     ];
   };
 }

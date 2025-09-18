@@ -28,8 +28,6 @@ in
       obsidian
       rnote
       webcord
-      spotify
-      # spicetify-cli
       firefox
       brave
       ungoogled-chromium
@@ -38,12 +36,16 @@ in
       newsflash
       zathura
       libreoffice-qt-fresh
+
+      # mdp
+      rmpc
+      mpv
+      nicotine-plus
       # upscaler TODO: broken
       # parabolic
       # mission-center
       # cameractrls-gtk4
       # kdePackages.kdeconnect-kde
-      mpv
 
       # cli:
       gtypist

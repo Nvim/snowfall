@@ -25,6 +25,7 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 22 ];
+    checkReversePath = false;
   };
 
   desktop = {
@@ -75,9 +76,9 @@
     xkb.qwerty = true;
   };
 
-  xremap = {
-    enable = true;
-  };
+  # xremap = {
+  #   enable = true;
+  # };
 
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;

@@ -9,6 +9,9 @@
 }:
 with lib;
 {
+  home.packages = [
+    pkgs.ghostty
+  ];
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
@@ -86,6 +89,7 @@ with lib;
     distrobox.enable = true;
     direnv.enable = true;
     rofi.enable = false;
+    mpd.enable = true;
     stylix.enable = true;
     stylix.hostname = hostname;
     tofi.enable = true;

@@ -11,7 +11,7 @@ let
   cfg = config.tools.stylix;
   firefoxProfile = config.apps.firefox.profileName;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/0280.jpg;
+  wallp = ../../../../wallp/0289.jpg;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then
@@ -44,29 +44,30 @@ in
       image = wallp;
       polarity = "dark";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal-gorgoroth.yaml";
       # base16Scheme = builtins.path { path= ./base16.yaml; };
 
       # custom zenbones dark (based on neovim)
-      override = {
-        base00 = "1C1917";
-        base01 = "2E2927";
-        base02 = "433C39";
-        base03 = "59514D";
-        base04 = "867A74";
-        base05 = "B4BDC3";
-        base06 = "B4BDC3";
-        base07 = "C4CACF";
-        base08 = "CB7A83";
-        base09 = "DFAF8F";
-        base0A = "E0CF9F";
-        base0B = "5F7F5F";
-        base0C = "66A5AD";
-        base0D = "315167";
-        base0E = "B279A7";
-        base0F = "55392C";
-      };
+      # override = {
+      #   base00 = "1C1917";
+      #   base01 = "2E2927";
+      #   base02 = "433C39";
+      #   base03 = "59514D";
+      #   base04 = "867A74";
+      #   base05 = "B4BDC3";
+      #   base06 = "B4BDC3";
+      #   base07 = "C4CACF";
+      #   base08 = "CB7A83";
+      #   base09 = "DFAF8F";
+      #   base0A = "E0CF9F";
+      #   base0B = "5F7F5F";
+      #   base0C = "66A5AD";
+      #   base0D = "315167";
+      #   base0E = "B279A7";
+      #   base0F = "55392C";
+      # };
 
       fonts = {
         monospace = {
@@ -119,7 +120,6 @@ in
           enableCenterBackColors = true;
           enableLeftBackColors = true;
           enableRightBackColors = true;
-          # font = "JetBrainsMono Nerd Font";
         };
         zellij.enable = false;
         avizo.enable = false;
@@ -128,6 +128,23 @@ in
         tofi.enable = false;
         tmux.enable = true;
         qt.enable = true;
+        gtk = {
+          enable = true;
+          extraCss = ''
+            /* No (default) title bar on wayland */
+            headerbar.default-decoration {
+              /* You may need to tweak these values depending on your GTK theme */
+              margin-bottom: 50px;
+              margin-top: -100px;
+            }
+
+            /* rm -rf window shadows */
+            window.csd,             /* gtk4? */
+            window.csd decoration { /* gtk3 */
+              box-shadow: none;
+            }
+          '';
+        };
       };
     };
     #

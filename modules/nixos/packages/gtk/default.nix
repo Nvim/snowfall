@@ -18,7 +18,7 @@ in
     environment.systemPackages = with pkgs; [
       # nautilus
       gnome-disk-utility
-      gnome-calculator
+      # gnome-calculator
       # totem
       # gnome-usage
       xfce.ristretto

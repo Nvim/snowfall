@@ -15,18 +15,18 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xremap = {
-      userName = cfg.username;
-      withWlroots = true;
-      yamlConfig = ''
-        modmap:
-          - name: main
-            remap:
-              CapsLock:
-                held: leftctrl
-                alone: esc
-                alone_timecout_millis: 150
-      '';
-    };
+    # services.xremap = {
+    #   userName = cfg.username;
+    #   withWlroots = true;
+    #   yamlConfig = ''
+    #     modmap:
+    #       - name: main
+    #         remap:
+    #           CapsLock:
+    #             held: leftctrl
+    #             alone: esc
+    #             alone_timecout_millis: 150
+    #   '';
+    # };
   };
 }

@@ -29,6 +29,7 @@ in
         wf-recorder
         wl-clipboard
         wlr-randr
+        lswt
         pcmanfm
         (pkgs.rustPlatform.buildRustPackage rec {
           pname = "flow";
