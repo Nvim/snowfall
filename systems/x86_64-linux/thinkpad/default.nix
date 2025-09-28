@@ -18,13 +18,16 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  environment.systemPackages = [
+    pkgs.unityhub
+  ];
   services.openssh.enable = true;
   services.gvfs.enable = true;
   home-manager.backupFileExtension = "back";
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 ];
+    allowedTCPPorts = [ 22 61483 ];
     checkReversePath = false;
   };
 
@@ -43,6 +46,7 @@
     bluetooth.enable = true;
     fingerprint.enable = true;
     gpu.amd.enable = false;
+    keyd.enable = true;
     networking.enable = true;
     networking.hostname = hostname;
     sleepfix.enable = false;
@@ -51,7 +55,7 @@
 
   packages = {
     basics.enable = true;
-    bitwarden.enable = true;
+    bitwarden.enable = false;
     proton.enable = true;
     dev.enable = true;
     gtk.enable = true;
@@ -75,10 +79,6 @@
     xkb.enable = true;
     xkb.qwerty = true;
   };
-
-  # xremap = {
-  #   enable = true;
-  # };
 
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;

@@ -45,7 +45,8 @@ in
       # atac
       yq
       jqp
-      # atuin
+      dnsutils
+      inetutils
 
       # Posix utils:
       man-pages

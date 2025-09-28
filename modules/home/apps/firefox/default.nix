@@ -28,7 +28,8 @@ in
           darkreader
           keepassxc-browser
           multi-account-containers
-          gruvbox-dark-theme
+          bitwarden
+          linkwarden
           tridactyl
         ];
         # https://github.com/dook97/firefox-qutebrowser-userchrome

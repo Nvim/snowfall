@@ -31,11 +31,12 @@ in
       firefox
       brave
       ungoogled-chromium
-      # qutebrowser
       thunderbird-bin
       newsflash
       zathura
       libreoffice-qt-fresh
+      eddie
+      portfolio
 
       # mdp
       rmpc

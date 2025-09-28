@@ -11,7 +11,7 @@ let
   cfg = config.tools.stylix;
   firefoxProfile = config.apps.firefox.profileName;
   hostname = cfg.hostname;
-  wallp = ../../../../wallp/0289.jpg;
+  wallp = ../../../../wallp/gruvbox/painting.jpg;
   cursorSize = if hostname == "desktop" then 16 else 12;
   termFontSize =
     if hostname == "desktop" then
@@ -19,7 +19,7 @@ let
     else if hostname == "hp-laptop" then
       10
     else
-      12;
+      13;
   appFontSize =
     if hostname == "desktop" then
       12
@@ -102,7 +102,7 @@ in
       };
 
       targets = {
-        ghostty.enable = false;
+        ghostty.enable = true;
         river.enable = true;
         fontconfig.enable = false;
         firefox = {

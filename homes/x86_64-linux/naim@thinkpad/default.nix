@@ -9,9 +9,6 @@
 }:
 with lib;
 {
-  home.packages = [
-    pkgs.ghostty
-  ];
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
@@ -58,7 +55,7 @@ with lib;
     enable = true;
     profileName = "BetterFox";
   };
-  apps.ghostty.enable = false;
+  apps.ghostty.enable = true;
   apps.wezterm.enable = false;
   apps.zathura.enable = true;
   cli = {
@@ -88,7 +85,7 @@ with lib;
     basic.enable = true;
     wayland.enable = true;
     x11.enable = false;
-    autobisync-service.enable = true;
+    autobisync-service.enable = false;
   };
 
   tools = {

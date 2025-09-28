@@ -86,6 +86,7 @@
     bluetooth.enable = true;
     fingerprint.enable = false;
     gpu.amd.enable = true;
+    keyd.enable = true;
     networking.enable = true;
     networking.hostname = hostname;
     sleepfix.enable = true;
@@ -118,10 +119,6 @@
     xkb.enable = true;
     xkb.qwerty = true;
   };
-
-  # xremap = {
-  #   enable = true;
-  # };
 
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;

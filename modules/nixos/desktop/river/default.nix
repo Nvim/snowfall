@@ -16,7 +16,7 @@ in
   };
   config = mkIf cfg.enable {
 
-    programs.river = {
+    programs.river-classic = {
       enable = true;
       xwayland.enable = false;
       extraPackages = with pkgs; [

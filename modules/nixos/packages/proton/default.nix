@@ -17,9 +17,9 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
 
-      proton-pass
       protonvpn-gui
-      protonmail-desktop
+      # proton-pass
+      # protonmail-desktop
     ];
   };
 }

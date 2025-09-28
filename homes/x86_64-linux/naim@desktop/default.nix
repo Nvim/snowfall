@@ -78,11 +78,11 @@ with lib;
   };
   scripts = {
     dmenucmd = "tofi";
-    defaultDisplay = "DP-3";
+    defaultDisplay = "HDMI-A-1";
     basic.enable = true;
     wayland.enable = true;
     x11.enable = false;
-    autobisync-service.enable = true;
+    autobisync-service.enable = false;
   };
 
   tools = {
