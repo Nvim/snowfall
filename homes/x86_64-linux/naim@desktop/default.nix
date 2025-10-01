@@ -9,9 +9,6 @@
 }:
 with lib;
 {
-  home.packages = [
-    pkgs.ghostty
-  ];
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
@@ -54,7 +51,7 @@ with lib;
     profileName = "BetterFox";
   };
   apps.wezterm.enable = false;
-  apps.ghostty.enable = false;
+  apps.ghostty.enable = true;
   apps.zathura.enable = true;
   cli = {
     neovim.enable = true;

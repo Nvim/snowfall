@@ -20,6 +20,7 @@ in
         background-opacity = 0.96;
         window-decoration = false;
         adjust-cell-height = "15%";
+        theme = "Zenbones Dark";
         # window-padding-x = 2;
         # window-padding-y = 2;
       };
