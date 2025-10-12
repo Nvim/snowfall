@@ -37,6 +37,7 @@ in
       libreoffice-qt-fresh
       eddie
       portfolio
+      calibre
 
       # mdp
       rmpc

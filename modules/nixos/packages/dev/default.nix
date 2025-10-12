@@ -39,6 +39,7 @@ in
       lua
 
       # Tools
+      cloc
       wget
       curl
       # xh

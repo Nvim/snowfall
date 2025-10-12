@@ -44,27 +44,27 @@ in
       image = wallp;
       polarity = "dark";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-      # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
 
       # custom zenbones dark (based on neovim/Ghostty)
-      override = {
-        base00 = "#1C1917";
-        base01 = "#2E2927";
-        base02 = "#433C39";
-        base03 = "#59514D";
-        base04 = "#867A74";
-        base05 = "#B4BDC3";
-        base06 = "#B4BDC3";
-        base07 = "#C4CACF";
+      # override = {
+      #   base00 = "#1C1917";
+      #   base01 = "#2E2927";
+      #   base02 = "#433C39";
+      #   base03 = "#59514D";
+      #   base04 = "#867A74";
+      #   base05 = "#B4BDC3";
+      #   base06 = "#B4BDC3";
+      #   base07 = "#C4CACF";
         # From Ghostty:
-        base08 = "#de6e7c";
-        base09 = "#b77e64";
-        base0A = "#E0CF9F"; # this one still from nvim
-        base0B = "#819b69";
-        base0C = "#66a5ad";
-        base0D = "#315167"; # nvim as well
-        base0E = "#b279a7";
-        base0F = "#403833";
+        # base08 = "#de6e7c";
+        # base09 = "#b77e64";
+        # base0A = "#E0CF9F"; # this one still from nvim
+        # base0B = "#819b69";
+        # base0C = "#66a5ad";
+        # base0D = "#315167"; # nvim as well
+        # base0E = "#b279a7";
+        # base0F = "#403833";
         # Extracted from nvim:
         # base08 = "#CB7A83";
         # base09 = "#DFAF8F";
@@ -74,7 +74,7 @@ in
         # base0D = "#315167";
         # base0E = "#B279A7";
         # base0F = "#55392C";
-      };
+      # };
 
       fonts = {
         monospace = {
@@ -109,7 +109,7 @@ in
       };
 
       targets = {
-        ghostty.enable = false; # use ghostty's builtin zenbones
+        ghostty.enable = true; # use ghostty's builtin zenbones
         river.enable = true;
         fontconfig.enable = false;
         firefox = {
